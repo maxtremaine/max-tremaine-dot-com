@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!--
-			Welcome to my website's source code.
-			I have optimized it for compactness, both reducing the number of files and number of lines.
-			Please reuse it if you like the design :)
-			-Max
-		-->
+
+<!--
+	Welcome to my website's source code.
+	I have optimized it for compactness, both reducing the number of files and number of lines.
+	Please reuse it if you like the design :)
+	-Max
+-->
+
 		<title>Max Tremaine.com</title>
+		<meta http-equiv="Cache-control" content="max-age=700000, public">
+		<link href="icon.jpg" rel="icon" type="image/jpeg">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Josefin+Slab:100" rel="stylesheet">
 		<meta charset="UTF-8">
 		<meta name="description" content="Max Tremaine's personal website.">
 		<meta name="keywords" content="Max Tremaine, Max, Tremaine, Sherpa, travel visas, easy travel visas">
 		<meta name="author" content="Max Tremaine">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<!-- Styles are stored in the html file to reduce bulk. -->
 		<style type="text/css">
-			/*
-				Inline styling was used wherever possible to keep the code compact.
-				Replication of inline style tags was reduced using the following CSS.
-			*/
 			h1, h2 {
-				margin: 24vh 0;
+				margin: 26vh 0;
+			}
+			p {
+				margin: 2vh 4vh;
 			}
 			h3 {
 				font-style: italic;
@@ -27,8 +32,23 @@
 			li {
 				list-style-position: inside;
 			}
-			/* Links change from sand to dark blue after use. */
-			a:link, #more {
+			table {
+				width: 96vw;
+				font-size: 2.5vh;
+			}
+			tr {
+				vertical-align: top;
+			}
+			td {
+				padding: 2vh;
+			}
+			button {
+				font-family: 'Lato', sans-serif;
+				font-size: 2vh;
+				display: none;
+				margin-left: 5vh;
+			}
+			a:link {
 				color: #BE8D5E;
 			}
 			a:visited {
@@ -37,73 +57,211 @@
 			a:hover, a:active {
 				color: #726152;
 			}
+			/* Distinguish between descriptor columns and detail rows. */
+			.descriptor {
+				width: 32vw;
+			}
+			.detail {
+				padding-top: 0;
+			}
 		</style>
+
 	</head>
-	<body style="font-family: 'Lato', sans-serif; font-size: 3vh;">
-		<!-- Cover Material -->
+	<body style="font-family: 'Lato', sans-serif; font-size: 3vh;" onload="getStarted()">
+
+<!-- Cover Page-->
 		<h1 style="font-size: 7vh;">Max Tremaine<span style="font-size: 3vh; color: #6BADBE;">.com</span></h1>
-		<h2 style="font-size: 4vh;">Co-founder of <a href="http://www.joinsherpa.com" target="_blank" style="font-size: 4vh;">Sherpa</a>.</h2>
+		<h2 style="font-size: 4vh; font-family: 'Josefin Slab', serif;">Co-founder of <a href="http://www.joinsherpa.com" target="_blank" style="font-size: 4vh;">Sherpa</a>.</h2>
 		<hr>
-		<!-- Introduction -->
+
+<!-- Introduction-->
 		<p>Hello,</p>
 		<p>Welcome to Max Tremaine.com, the internet's best summary resource for information about me, Max Tremaine. I'm the business co-founder of Sherpa: the easiest way to get a travel visa. I'm also interested in citizenship, database management systems, and disruption theory.</p>
 		<p>Get in touch.</p>
 		<p>-Max</p>
 		<hr>
-		<!-- Lists-->
+
+<!-- How to get in touch. -->
 		<h3>How to get in touch:</h3>
 		<ul>
-			<li>The best place to find updates on my life is <a href="http://www.twitter.com/maxtremaine" target="_blank">Twitter</a>, but that's changing gradually toward <a href="http://www.instagram.com/maxtremaine" target="_blank">Instagram</a>.</li>
+			<li>I have public <a href="http://www.twitter.com/maxtremaine" target="_blank">Twitter</a> direct messages turned on, and I'll get a push notification.</li>
 			<li>If you want to connect in a businessy way, I also get push notifications from <a href="https://ca.linkedin.com/in/maxtremaine" target="_blank">LinkedIn</a>.</li>
 			<li>If you're super serious about business, I also have an <a href="https://angel.co/maxtremaine" target="_blank">Angel List</a> account, which I check periodically.</li>
-			<li>When I have thoughts that can't be expressed in 140 characters, I use <a href="https://medium.com/@maxtremaine" target="_blank">Medium</a>.</li>
 			<li>You can email me at <a href="mailto:me@maxtremaine.com">me@maxtremaine.com</a> if none of those options work for you.</li>
 			<li>If you're introducing me to someone, you can use this website or my <a href="https://about.me/maxtremaine" target="_blank">About.me</a> page as a reference.</li>
 		</ul>
+		<hr>
+
+<!-- Favourite Books -->
 		<h3>My favourite books:</h3>
 		<ol>
-			<li><a href="https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma">The Innovator's Dilemma</a> by Clayton Christiensen</li>
-			<li><a href="https://www.goodreads.com/book/show/18050143-zero-to-one">Zero to One</a> by Peter Thiel</li>
-			<li><a href="https://www.goodreads.com/book/show/10127019-the-lean-startup">The Lean Startup</a> by Eric Reis</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/97820.Free_to_Choose">Free to Choose</a> by Milton Friedman</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/3398414-sex-trafficking">Sex Trafficking</a> by Siddharth Kara</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/2714607-the-ascent-of-money">The Ascent of Money</a> by Niall Ferguson</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/867247.A_Book_of_Five_Rings">The Book of Five Rings</a> by Miyamoto Musashi</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/6184317-dead-aid">Dead Aid</a> by Dambisa Moyo</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/6372440-this-time-is-different">This Time is Different</a> by Carmen Reinhart and Kenneth Rogoff</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/2618.The_Innovator_s_Solution">The Innovator's Solution</a> by Clayton Christiensen and Michael Raynor</li>
-			<li class="extra"><a href="http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing">Option Volatility & Pricing</a> by Sheldon Natenberg</li>
-			<li class="extra"><a href="https://www.goodreads.com/book/show/12917124-dark-pools">Dark Pools</a> by Scott Patterson</li>
-			<li class="extra"><a href="http://www.goodreads.com/book/show/69571.Rich_Dad_Poor_Dad">Rich Dad Poor Dad</a> by Robert Kiyosaki</li>
-			<li class="extra"><a href="http://www.goodreads.com/book/show/1202.Freakonomics">Freakonomics</a> by Steph(v)ens Levitt and Dubner</li>
-			<li class="extra" style="list-style-type: disc;">For more, check out my <a href="https://www.goodreads.com/user/show/62568354-max-tremaine">Goodreads</a> profile.</li>
+			<li><a href="https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma" target="_blank">The Innovator's Dilemma</a> by Clayton Christiensen</li>
+			<li><a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank">Zero to One</a> by Peter Thiel</li>
+			<li><a href="https://www.goodreads.com/book/show/10127019-the-lean-startup" target="_blank">The Lean Startup</a> by Eric Reis</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/97820.Free_to_Choose" target="_blank">Free to Choose</a> by Milton Friedman</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/3398414-sex-trafficking" target="_blank">Sex Trafficking</a> by Siddharth Kara</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/2714607-the-ascent-of-money" target="_blank">The Ascent of Money</a> by Niall Ferguson</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/867247.A_Book_of_Five_Rings" target="_blank">The Book of Five Rings</a> by Miyamoto Musashi</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/6184317-dead-aid" target="_blank">Dead Aid</a> by Dambisa Moyo</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/6372440-this-time-is-different" target="_blank">This Time is Different</a> by Carmen Reinhart and Kenneth Rogoff</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/2618.The_Innovator_s_Solution" target="_blank">The Innovator's Solution</a> by Clayton Christiensen and Michael Raynor</li>
+			<li class="extra extra_books"><a href="http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing" target="_blank">Option Volatility & Pricing</a> by Sheldon Natenberg</li>
+			<li class="extra extra_books"><a href="https://www.goodreads.com/book/show/12917124-dark-pools" target="_blank">Dark Pools</a> by Scott Patterson</li>
+			<li class="extra extra_books"><a href="http://www.goodreads.com/book/show/69571.Rich_Dad_Poor_Dad" target="_blank">Rich Dad Poor Dad</a> by Robert Kiyosaki</li>
+			<li class="extra extra_books"><a href="http://www.goodreads.com/book/show/1202.Freakonomics" target="_blank">Freakonomics</a> by Steph(v)ens Levitt and Dubner</li>
+			<li class="extra extra_books" style="list-style-type: none;">For more, check out my <a href="https://www.goodreads.com/user/show/62568354-max-tremaine" target="_blank">Goodreads</a> profile.</li>
 		</ol>
-		<a id="more" style="display: none; margin-left: 5vh; text-decoration: underline;">More...</a>
+		<button id="more_books" class="more_button" onclick="listButton('extra_books','more_books','fewer_books','list-item')">More</button>
+		<button id="fewer_books" onclick="listButton('extra_books','fewer_books','more_books')">Fewer</button>
 		<hr>
-		<!-- Footer -->
+
+<!-- Articles -->
+		<h3>Articles:</h3>
+		<table>
+			<tr>
+				<td class="descriptor"><a href="https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p">The Worst Part of Travel</a></td>
+				<td>Desription.</td>
+			</tr>
+			<tr>
+				<td class="descriptor"><a href="https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py">Nobody Likes Travel Visas</a></td>
+				<td>Another desription.</td>
+			</tr>
+			<tr class="extra extra_articles">
+				<td class="descriptor"><a href="https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5">Your Phone Will Replace Your Passport</a></td>
+				<td>Another desription.</td>
+			</tr>
+			<tr class="extra extra_articles">
+				<td class="descriptor"><a href="https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0">Laws on Your Phone</a></td>
+				<td>Another desription.</td>
+			</tr>
+		</table>
+		<button id="more_articles" class="more_button" onclick="listButton('extra_articles','more_articles','fewer_articles','table-row')">More</button>
+		<button id="fewer_articles" onclick="listButton('extra_articles','fewer_articles','more_articles')">Fewer</button>
+		<hr>
+
+<!-- Resume -->
+		<h3>Resume:</h3>
+		<table>
+			<tr>
+				<td class="descriptor"><a href="http://www.joinsherpa.com" target="_blank">Visa Run</a></td>
+				<td>Co-Founder & CEO</td>
+			</tr>
+			<tr>
+				<td class="descriptor detail">Dec. 2015 to present</td>
+				<td class="detail">Business leader of a small team with an innovative product. Established relationships with leaders in the Travel Visa Services market. Developed lean marketing and sales processes.</td>
+			</tr>
+			<tr>
+				<td class="descriptor"><a href="http://therevenueu.com/" target="_blank">The Revenue U</a></td>
+				<td>Market Validation & Lean Startup Consultant</td>
+			<tr>
+			<tr>
+				<td class="descriptor detail">Sep. 2016 to present</td>
+				<td class="detail">Facilitated the Market Validation Lab program. Designed course materials to establish Lean Startup methodologies for OCE-backed startups. Advised startup leadership teams in achieving market-ready products.</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="http://www.tier1crm.com" target="_blank">Tier1CRM</a></td>
+				<td>Marketing Analyst</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">Sep. 2016 to present</td>
+				<td class="detail">Established the marketing pipeline and marketing analysis framework. Formalized policies relating to information security and business continuity. Reported directly to the leadership team.</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="http://www.hubspot.com/" target="_blank">Hubspot</a></td>
+				<td>Inbound Certification</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">2016</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="http://www.nielsen.com" target="_blank">Nielsen</a></td>
+				<td>Market Research Analyst</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">January 2013 to August 2014</td>
+				<td class="detail">Won "Commitment to Excellence (2013)" for assissting with analysis and insights for a white paper on Price Divergence. Led and contributed to research on the Canadian Retail/CPG market. Acted as first point of contact for Imperial Oil and Canadian Tire accounts.</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="http://www.csi.ca/" target="_blank">Canadian Securities Institute</a></td>
+				<td>Canadian Securities Course</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">2013</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="http://www.google.com/" target="_blank">Google</a></td>
+				<td>Digital Analytics Fundamentals</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">2013</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor"><a href="https://www.wlu.ca/" target="_blank">Wilfrid Laurier University</a></td>
+				<td>Hons. BA Political Science & Psychology (Min. Economics)</td>
+			<tr>
+			<tr class="extra extra_jobs">
+				<td class="descriptor detail">2008 to 2012</td>
+			</tr>
+			<tr class="extra extra_jobs">
+				<td colspan="2">More info can be found on my <a href="https://ca.linkedin.com/in/maxtremaine" target="_blank">LinkedIn</a> profile.</td>
+			</tr>
+		</table>
+		<button id="more_jobs" class="more_button" onclick="listButton('extra_jobs','more_jobs','fewer_jobs','table-row')">More</button>
+		<button id="fewer_jobs" onclick="listButton('extra_jobs','fewer_jobs','more_jobs')">Fewer</button>
+		<hr>
+
+<!-- Footer -->
 		<h4 style="font-size: 2vh; text-align: right;">Thanks for dropping by.</h4>
-		<!-- jQuery 3.1.1 Slim Minified Library -->
-		<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+
 		<script>
-			// jQuery Start..
-			function main() {
-				$(".extra").hide();
-				$("#more").show();
-				$("#more").on("click", function() {
-					$(".extra").show();
-					$("#more").hide();
-				});
+
+// Hide the extras and show the more buttons if JavaScript works.
+			function getStarted() {
+				var hideExtras = document.getElementsByClassName('extra');
+				var showMoreButtons = document.getElementsByClassName('more_button');
+			    for(var x = 0; x < hideExtras.length; x++) {
+			    	hideExtras[x].style.display = 'none';
+			    }
+				for(var x=0; x < showMoreButtons.length; x++) {
+					showMoreButtons[x].style.display = 'block';
+				}
 			}
-			$(document).ready(main());
-			// ...Finish
-			// Google Tracking Code Start...
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+// Change the display of extra classes and buttons when list buttons are clicked.
+			function listButton(extraClass,buttonToHide,buttonToShow,extraClassDisplayValue) {
+				if(extraClassDisplayValue === undefined) {
+					extraClassDisplayValue = 'none'
+				}
+				var allOfExtraClass = document.getElementsByClassName(extraClass);
+				for(var x = 0; x < allOfExtraClass.length; x++) {
+					allOfExtraClass[x].style.display = extraClassDisplayValue;
+				}
+				document.getElementById(buttonToHide).style.display = 'none';
+				document.getElementById(buttonToShow).style.display = 'block';
+			}
+
+// Google Tracking Code
+			(function(i,s,o,g,r,a,m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r]
+				||function(){
+					(
+						i[r].q = i[r].q
+						||[]).push(arguments
+					)
+				},
+				i[r].l = 1*new Date();
+				a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a,m)
+			})
+			(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 			ga('create', 'UA-45002570-1', 'auto');
 			ga('send', 'pageview');
-			// ...Finish
+
 		</script>
+
 	</body>
 </html>
