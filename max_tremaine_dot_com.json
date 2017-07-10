@@ -1,0 +1,199 @@
+{
+  "max_tremaine_dot_com": {
+    "meta": {
+      "author": "Max Tremaine",
+      "contact": "me@maxtremaine.com",
+      "last_updated": "April 20, 2017",
+      "welcome_message": "\nHi Stranger!\n\nWelcome to the console of my website. Take a look at my XMLHttpRequest and data structure. Pretty sweet right? You can find all of the code that I used to put this together in the source, and all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max"
+    },
+    "favourite_books": [
+      {
+        "title": "The Sovereign Individual",
+        "author": "James Dale Davidson & William Rees-Mogg",
+        "link": "https://www.goodreads.com/book/show/82256.The_Sovereign_Individual"
+      },
+      {
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "link": "https://www.goodreads.com/book/show/18050143-zero-to-one"
+      },
+      {
+        "title": "The Innovator's Dilemma",
+        "author": "Clayton Christiensen",
+        "link": "https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma"
+      },
+      {
+        "title": "Free to Choose",
+        "author": "Milton Friedman",
+        "link": "https://www.goodreads.com/book/show/97820.Free_to_Choose"
+      },
+      {
+        "title": "Option Volatility and Pricing",
+        "author": "Sheldon Natenberg",
+        "link": "http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing"
+      },
+      {
+        "title": "Sex Trafficking",
+        "author": "Siddharth Kara",
+        "link": "https://www.goodreads.com/book/show/3398414-sex-trafficking"
+      },
+      {
+        "title": "The Ascent of Money",
+        "author": "Niall Ferguson",
+        "link": "https://www.goodreads.com/book/show/2714607-the-ascent-of-money"
+      },
+      {
+        "title": "Dead Aid",
+        "author": "Dambisa Moyo",
+        "link": "https://www.goodreads.com/book/show/6184317-dead-aid"
+      },
+      {
+        "title": "This Time is Different",
+        "author": "Carmen Reinhard & Kenneth Rogoff",
+        "link": "https://www.goodreads.com/book/show/6372440-this-time-is-different"
+      },
+      {
+        "title": "The Innovator's Solution",
+        "author": "Clayton Christiensen & Michael Raynor",
+        "link": "https://www.goodreads.com/book/show/2618.The_Innovator_s_Solution"
+      },
+      {
+        "title": "Confidence Game",
+        "author": "Christine Richard",
+        "link": "https://www.goodreads.com/book/show/8103503-confidence-game"
+      },
+      {
+        "title": "The Hard Thing About Hard Things",
+        "author": "Ben Horowitz",
+        "link": "https://www.goodreads.com/book/show/18176747-the-hard-thing-about-hard-things"
+      }
+    ],
+    "favourite_quotes": [
+      {
+        "quote": "The worth of a man is his price.",
+        "author": "Thomas Hobbes",
+        "public": false
+      },
+      {
+        "quote": "Don't take refuge in the false security of consensus.",
+        "author": "Christopher Hitchens",
+        "public": true
+      },
+      {
+        "quote": "It’s tough to make predictions, especially about the future.",
+        "author": "Yogi Berra",
+        "public": false
+      },
+      {
+        "quote": "Data is the sword of the 21st century, those who wield it well, the Samurai.",
+        "author": "Jonathan Rosenberg",
+        "public": true
+      },
+      {
+        "quote": "A civilization is built on what is required of men, not on that which is provided to them.",
+        "author": "Antoine de Saint-Exupery",
+        "public": false
+      },
+      {
+        "quote": "Concentrated power is not rendered harmless by the good intentions of those who create it.",
+        "author": "Milton Friedman",
+        "public": true
+      },
+      {
+        "quote": "In mathematics the art of proposing a question must be held of higher value than solving it.",
+        "author": "Georg Cantor",
+        "public": true
+      },
+      {
+        "quote": "The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
+        "author": "Thomas Sowell",
+        "public": true
+      },
+      {
+        "quote": "[If] you think of the world as consisting of lottery tickets, you have set yourself up to lose. ... Even though there may be things that involve irreducible elements of luck, it's not an intellectual truth about the world.",
+        "author": "Peter Thiel",
+        "public": true
+      }
+    ],
+    "articles": [
+      {
+        "title": "The Worst Part of Travel",
+        "description": "Some horror stories about visa applications from Sherpa's customer discovery interviews.",
+        "link": "https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p"
+      },
+      {
+        "title": "Nobody Likes Travel Visas",
+        "description": "An overview of some of my findings researching travel visa requirements, and people's experiences applying for travel visas.",
+        "link": "https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py"
+      },
+      {
+        "title": "Your Phone Will Replace Your Passport",
+        "description": "Some of my thoughts on the changing travel documentation landscape.",
+        "link": "https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5"
+      },
+      {
+        "title": "Laws on Your Phone",
+        "description": "Some of my thoughts on the application of mobile technologies to the consumption of legal and regulatory data.",
+        "link": "https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0"
+      }
+    ],
+    "resume": [
+      {
+        "company": "Visa Run (Trade Name: Sherpa)",
+        "title": "Co-Founder & CEO",
+        "period": "Dec. 2015 to present",
+        "description": "Business leader of a small team with an innovative product. Established relationships with leaders in the Travel Visa Services market. Developed lean marketing and sales processes.",
+        "link": "http://www.joinsherpa.com"
+      },
+      {
+        "company": "The Revenue U",
+        "title": "Market Validation & Lean Startup Consultant",
+        "period": "Sep. 2016 to present",
+        "description": "Facilitated the Market Validation Lab program. Designed course materials to establish Lean Startup methodologies for OCE-backed startups. Advised startup leadership teams in achieving market-ready products.",
+        "link": "http://therevenueu.com/"
+      },
+      {
+        "company": "Tier1CRM",
+        "title": "Marketing Analyst",
+        "period": "Sep. 2016 to present",
+        "description": "Established the marketing pipeline and marketing analysis framework. Formalized policies relating to information security and business continuity. Reported directly to the leadership team.",
+        "link": "http://www.tier1crm.com"
+      },
+      {
+        "company": "Hubspot",
+        "title": "Inbound Certification",
+        "period": "2016",
+        "description": "Gained a basic understanding of best practices and tools in Inbound Marketing.",
+        "link": "http://www.hubspot.com/"
+      },
+      {
+        "company": "Nielsen",
+        "title": "Market Research Analyst",
+        "period": "January 2013 to August 2014",
+        "description": "Won 'Commitment to Excellence (2013)' for assissting with analysis and insights for a white paper on Price Divergence. Led and contributed to research on the Canadian Retail/CPG market. Acted as first point of contact for Imperial Oil and Canadian Tire accounts.",
+        "link": "http://www.nielsen.com"
+      },
+      {
+        "company": "Canadian Securities Institute",
+        "title": "Canadian Securities Course",
+        "period": "2013",
+        "description": "Certified to sell Mutual Funds in Canada.",
+        "link": "http://www.csi.ca/"
+      },
+      {
+        "company": "Google",
+        "title": "Digital Analytics Fundamentals",
+        "period": "2013",
+        "description": "Trained to use Google's digital analytics tools.",
+        "link": "http://www.google.com/"
+      },
+      {
+        "company": "Wilfrid Laurier University",
+        "title": "Hons. BA Political Science & Psychology (Min. Economics)",
+        "period": "2008 to 2012",
+        "description": "Rigorous study in statistics and social research.",
+        "link": "https://www.wlu.ca/"
+      }
+    ]
+  }
+}
