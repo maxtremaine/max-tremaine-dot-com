@@ -1,77 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" />
 		<title>Max Tremaine.com</title>
 		<link href="icon.jpg" rel="icon" type="image/jpeg" />
 		<link href="https://fonts.googleapis.com/css?family=Lato|Josefin+Slab:100" rel="stylesheet" />
-		<style type="text/css">
-			* {
-				margin: 0;
-				font-family: 'Lato', sans-serif;
-				font-size: 3vh;
-			}
+		<link href="drc.css" rel="stylesheet">
+		<style>
 			h1, h2 {
 				padding: 18vh 1vh;
 			}
-			h3, p {
-				padding: 1vh 2vh;
-			}
-			h3 {
-				font-size: 4vh;
-				font-style: italic;
-			}
-			nav, button {
-				font-size: 2vh;
-			}
-			table {
-				border-collapse: collapse;
-			}
-			a:link {
-				color: #BE8D5E;
-			}
-			a:visited {
-				color: #4B6A72;
-			}
-			a:hover, a:active {
-				color: #726152;
-			}
-			.data_loaded, .fewer {
-				display: none;
-			}
-			.list_button {
-				margin: 2vh;
-			}
-			.descriptor {
-				width: 30vw;
-			}
-			.detail {
-				font-size: 2.5vh;
-				background-color: WhiteSmoke;
-			}
 		</style>
 	</head>
-	<body onload="main()">
-		<div style="position:fixed;bottom:0;box-shadow:0 0 0.3vh 0 black;">
-			<nav style="padding:1vh;width:100vw;bottom:0;background-color:lightgrey;text-align:center;">
-				Jump to:
-				<button onclick="document.getElementById('intro').scrollIntoView()">Intro</button>
-				<button onclick="document.getElementById('contact').scrollIntoView()">Contact</button>
-				<button onclick="document.getElementById('articles').scrollIntoView()">Articles</button>
-				<button onclick="document.getElementById('resume').scrollIntoView()">Resume</button>
-				<button onclick="document.getElementById('favourite_books').scrollIntoView()">Favourite Books</button>
-				<button onclick="document.getElementById('favourite_quotes').scrollIntoView()">Favourite Quotes</button>
-			</nav>
-		</div>
+	<body>
+		<nav style="position:fixed;bottom:0;padding:1vh;border-top:0.1vh solid black;width:100vw;bottom:0;background-color:#560a0a;text-align:center;color:white;">
+			Jump to:
+			<button onclick="scrollToSection('intro')">Intro</button>
+			<button onclick="scrollToSection('contact')">Contact</button>
+			<button onclick="scrollToSection('articles')">Articles</button>
+			<button onclick="scrollToSection('favourite_books')">Favourite Books</button>
+			<button onclick="scrollToSection('favourite_quotes')">Favourite Quotes</button>
+			<button onclick="scrollToSection('resume')">Resume</button>
+		</nav>
 		<section>
 			<article id="titles">
 				<h1 style="font-size:7vh;">Max Tremaine<span style="font-size:3vh;color:#6BADBE;">.com</span></h1>
-				<h2 style="font-size:4vh;font-family:'Josefin Slab',serif;">Co-Founder of Sherpa.</h2>
+				<h2 style="font-size:4vh;font-family:'Josefin Slab',serif;">Co-Founder of Sherpa</h2>
 				<hr />
 			</article>
 			<article id="intro">
 				<p>Hello,</p>
-				<p>Welcome to Max Tremaine.com, the internet's best summary resource for information about me, Max Tremaine. I'm the businessy co-founder of <a href="http://www.joinsherpa.com" target="_blank">Sherpa</a>: the easiest way to get a travel visa. I'm also interested in statistical learning, citizenship, database management systems, and disruption theory.</p>
+				<p>Welcome to Max Tremaine.com, the internet's best summary resource for information about me, Max Tremaine. I spend most of my time working on <a href="http://www.joinsherpa.com" target="_blank">Sherpa</a>: the easiest way to get a travel visa. I also host <a href="http://www.traveltechto.com">TravelTechTO</a> on a quarterly basis. I'm interested in statistical learning, citizenship, database management systems, and disruption theory.</p>
 				<p>If you're a computer, you can also read my website <a href="max_tremaine_dot_com.json" target ="_blank">in JSON</a>.</p>
 				<p>-Max</p>
 				<hr />
@@ -93,13 +52,6 @@
 				<button id="fewer_articles" class="fewer list_button" onclick="listButton('extra_articles','fewer_articles','more_articles')">Fewer</button>
 				<hr />
 			</article>
-			<article id="resume" class="data_loaded">
-				<h3>Resume:</h3>
-				<table id="resume_table"></table>
-				<button id="more_jobs" class="list_button" onclick="listButton('extra_jobs','more_jobs','fewer_jobs','table-row')">More</button>
-				<button id="fewer_jobs" class="fewer list_button" onclick="listButton('extra_jobs','fewer_jobs','more_jobs')">Fewer</button>
-				<hr />
-			</article>
 			<article id="favourite_books" class="data_loaded">
 				<h3>Favourite Books:</h3>
 				<ol id="favourite_books_list" style="margin: 2vh 3vh;"></ol>
@@ -114,19 +66,25 @@
 				<button id="fewer_quotes" class="fewer list_button" onclick="listButton('extra_quotes','fewer_quotes','more_quotes')">Fewer</button>
 				<hr />
 			</article>
+			<article id="resume" class="data_loaded">
+				<h3>Resume:</h3>
+				<table id="resume_table"></table>
+				<button id="more_jobs" class="list_button" onclick="listButton('extra_jobs','more_jobs','fewer_jobs','table-row')">More</button>
+				<button id="fewer_jobs" class="fewer list_button" onclick="listButton('extra_jobs','fewer_jobs','more_jobs')">Fewer</button>
+				<hr />
+			</article>
 		</section>
 		<footer style="margin-bottom:10vh;">
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
 		<script>
-			function showSections() {
-				// Show all of the labels and buttons to accompany data.
-				var labelsAndButtons = document.getElementsByClassName('data_loaded');
-				for(var i = 0; i < labelsAndButtons.length; i++) {
-					labelsAndButtons[i].style.display = 'inline';
-				}
-			}
-			function getData() {
+
+			/**
+			 * The following AJAX functions get the website setup.
+			 * The flow starts by showing the articles if JS is on, then populates them.
+			 */
+
+			 function getData() {
 				var dataURL = 'max_tremaine_dot_com.json'
 				var rawPageData = new XMLHttpRequest();
 				rawPageData.open('GET', dataURL, true);
@@ -137,17 +95,27 @@
 				}
 				rawPageData.send();
 			}
+
+			function showSections() {
+				// Show all of the labels and buttons to accompany data.
+				var labelsAndButtons = document.getElementsByClassName('data_loaded');
+				for(var i = 0; i < labelsAndButtons.length; i++) {
+					labelsAndButtons[i].style.display = 'inline';
+				}
+			}
 			function dataRouter(databaseOutput) {
 				var data = JSON.parse(databaseOutput).max_tremaine_dot_com;
 				var articleData = data.articles;
 				var resumeData = data.resume;
 				var bookData = data.favourite_books;
 				var quoteData = data.favourite_quotes;
+				var meta = data.meta;
 				loadArticles(articleData);
-				loadResume(resumeData);
 				loadBooks(bookData);
 				loadQuotes(quoteData);
+				loadResume(resumeData);
 				hideExtras();
+				logMeta(meta);
 			}
 			function loadArticles(data) {
 				var articlesSection = document.getElementById('article_table');
@@ -181,6 +149,59 @@
 					articleRow.appendChild(rightData);
 					rightData.style = article_padding;
 					rightData.appendChild(articleDescription);
+				}
+			}
+			function loadBooks(data) {
+				var booksList = document.getElementById('favourite_books_list');
+				var sortedData = sortObject(data, 'rank');
+				for(var i = 0; i < sortedData.length; i++) {
+					/**
+					 * This loop creates book items in the following format:
+					 * <li class=[class] style="list-style-position:inside;">
+					 *     <a href=[link] target="_blank">[title]</a>
+					 *     [author]
+					 * </li>
+					 */
+
+					var link = ['book.html?title=', sortedData[i].key].join('');
+					var bookItem = document.createElement('li');
+					var bookLink = document.createElement('a');
+					var title = document.createTextNode(sortedData[i].title);
+					var author = document.createTextNode(' by ' + sortedData[i].author);
+					booksList.appendChild(bookItem);
+					bookItem.className = (i > 2) ? 'extra_books' : '';
+					bookItem.appendChild(bookLink);
+					bookLink.href = link; 
+					bookLink.appendChild(title);
+					bookItem.appendChild(author);
+				}
+			}
+			function loadQuotes(data) {
+				var quotesList = document.getElementById('favourite_quotes_list');
+				for(var i = 0, j = 0; i < data.length; i++) {
+					/**
+					 * This loop creates quote items in the following format:
+					 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
+					 *     <q>[quote]</q>
+					 *     <p style="text-align:right;">[author]</p>
+					 * </li>
+					 */
+					if(data[i].public) {
+						var quoteItem = document.createElement('li');
+						var quoteElement = document.createElement('q');
+						var quote = document.createTextNode(data[i].quote);
+						var authorElement = document.createElement('p');
+						var author = document.createTextNode('- ' + data[i].author);
+						quotesList.appendChild(quoteItem);
+						quoteItem.className = (j > 1) ? 'extra_quotes' : '';
+						quoteItem.style = 'list-style-type:none; margin: 2vh 1vh;';
+						quoteItem.appendChild(quoteElement);
+						quoteElement.appendChild(quote);
+						quoteItem.appendChild(authorElement);
+						authorElement.style = 'text-align:right;';
+						authorElement.appendChild(author);
+						j++
+					}
 				}
 			}
 			function loadResume(data) {
@@ -238,59 +259,6 @@
 					bottomRight.appendChild(description);
 				}
 			}
-			function loadBooks(data) {
-				var booksList = document.getElementById('favourite_books_list');
-				for(var i = 0; i < data.length; i++) {
-					/**
-					 * This loop creates book items in the following format:
-					 * <li class=[class] style="list-style-position:inside;">
-					 *     <a href=[link] target="_blank">[title]</a>
-					 *     [author]
-					 * </li>
-					 */
-
-					var bookItem = document.createElement('li');
-					var bookLink = document.createElement('a');
-					var title = document.createTextNode(data[i].title);
-					var author = document.createTextNode(' by ' + data[i].author);
-					booksList.appendChild(bookItem);
-					bookItem.className = (i > 2) ? 'extra_books' : '';
-					bookItem.appendChild(bookLink);
-					bookLink.href = data[i].link;
-					bookLink.target = '_blank';
-					bookLink.appendChild(title);
-					bookItem.appendChild(author);
-
-				}
-			}
-			function loadQuotes(data) {
-				var quotesList = document.getElementById('favourite_quotes_list');
-				for(var i = 0, j = 0; i < data.length; i++) {
-					/**
-					 * This loop creates quote items in the following format:
-					 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
-					 *     <q>[quote]</q>
-					 *     <p style="text-align:right;">[author]</p>
-					 * </li>
-					 */
-					if(data[i].public) {
-						var quoteItem = document.createElement('li');
-						var quoteElement = document.createElement('q');
-						var quote = document.createTextNode(data[i].quote);
-						var authorElement = document.createElement('p');
-						var author = document.createTextNode('- ' + data[i].author);
-						quotesList.appendChild(quoteItem);
-						quoteItem.className = (j > 1) ? 'extra_quotes' : '';
-						quoteItem.style = 'list-style-type:none; margin: 2vh 1vh;';
-						quoteItem.appendChild(quoteElement);
-						quoteElement.appendChild(quote);
-						quoteItem.appendChild(authorElement);
-						authorElement.style = 'text-align:right;';
-						authorElement.appendChild(author);
-						j++
-					}
-				}
-			}
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
 				var extras = document.querySelectorAll(classes.join());
@@ -298,18 +266,50 @@
 					extras[i].style.display = 'none';
 				}
 			}
-			function listButton(extraClass, buttonToHide, buttonToShow, extraClassDisplayValue) {
-				if(extraClassDisplayValue === undefined) {
-					extraClassDisplayValue = 'none';
+			function logMeta(data) {
+				// Log the metadata for other nerds.
+				console.log(['Author: ', data.author].join(''));
+				console.log(['Contact: ', data.contact].join(''));
+				console.log(['Last Updated: ', data.last_updated].join(''));
+				console.log(data.welcome_message);
+			}
+
+			/**
+			 */
+
+			function sortObject(obj, sortKey) {
+				/**
+				 * Turn an object into a sorted array.
+				 * Nested objects can be sorted by a key (sortKey).
+				 */
+				var out = Object.entries(obj);
+				out = out.map(function(x) {
+					let obj = x[1];
+					obj['key'] = x[0];
+					return obj;
+				});
+				if(typeof out[0][sortKey] === 'number') {
+					// If the sortKey is numerical order accordingly.
+					out.sort(function(a, b) {return a[sortKey] - b[sortKey]});
+				} else {
+					// If the sortKey is not numerical order alphabetically.
+					out.sort(function(a, b) {
+						let x = a[sortKey].toLowerCase();
+						let y = b[sortKey].toLowerCase();
+						return (x > y) ? 1 : -1;
+					});
 				}
+				return out;
+			}
+			function listButton(extraClass, buttonToHide, buttonToShow, extraClassDisplayValue) {
+				if(extraClassDisplayValue === undefined) {extraClassDisplayValue = 'none';}
 				document.getElementById(buttonToHide).style.display = 'none';
 				document.getElementById(buttonToShow).style.display = 'block';
 				var extraClassElements = document.getElementsByClassName(extraClass);
-				for(var i = 0; i < extraClassElements.length; i++) {
-					extraClassElements[i].style.display = extraClassDisplayValue;
-				}
+				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
 			}
-			function main() {
+			function scrollToSection(section) {document.getElementById(section).scrollIntoView();}
+			window.onload = function() {
 				showSections();
 				getData();
 			}
@@ -330,27 +330,6 @@
 
 			ga('create', 'UA-45002570-1', 'auto');
 			ga('send', 'pageview');
-			!function() {
-				// Drift Chat Bot
-				var t;
-				if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
-				t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-				t.factory = function(e) {
-					return function() {
-						var n;
-						return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
-					};
-				}, t.methods.forEach(function(e) {
-					t[e] = t.factory(e);
-				}), t.load = function(t) {
-					var e, n, o, i;
-					e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
-					o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", 
-					n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
-				});
-			}();
-			drift.SNIPPET_VERSION = '0.3.1';
-			drift.load('m2zfynnd2r9a');
 		</script>
 	</body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Great Book</title>
+		<link href="icon.jpg" rel="icon" type="image/jpeg" />
+		<link href="https://fonts.googleapis.com/css?family=Lato|Josefin+Slab:100" rel="stylesheet" />
+		<link href="drc.css" rel="stylesheet" />
+		<style>
+			h1 {
+				padding: 1vh;
+			}
+		</style>
+	</head>
+	<body>
+		<nav style="position:fixed;bottom:0;padding:1vh;border-top:0.1vh solid black;width:100vw;bottom:0;background-color:#560a0a;text-align:center;">
+			<button onclick="goHome()">Home</button>
+		</nav>
+		<section>
+			<article>
+				<h1 id="title" style="font-size: 6vh;"></h1>
+				<h2>by <span id="author" style="font: inherit;"></span> | <a id="link" style="font-family: 'Josefin Slab', serif;" target="_blank">Goodreads</a></h2>
+				<hr style="margin-bottom: 3vh;" />
+				<p id="description"></p>
+				<h3>Favourite Quote:</h3>
+				<q id="favouriteQuote"></q>
+			</article>
+		</section>
+		<script>
+			function getData() {
+				var dataURL = 'max_tremaine_dot_com.json'
+				var rawPageData = new XMLHttpRequest();
+				rawPageData.open('GET', dataURL, true);
+				rawPageData.onreadystatechange = function() {
+					if(rawPageData.readyState == 4 && rawPageData.status == 200) {
+						dataRouter(rawPageData.responseText);
+					}
+				}
+				rawPageData.send();
+			}
+
+			function getUrlObject() {
+				var urlObject = {};
+				var url = window.location.href;
+				var queryString = url.substring(url.indexOf('?') + 1);
+				var queries = queryString.split('&');
+				for(var i = 0; i < queries.length; i++) {
+					var pair = queries[i].split('=');
+					urlObject[pair[0]] = pair[1];
+				}
+				return urlObject;
+			}
+			function dataRouter(databaseOutput) {
+				var data = JSON.parse(databaseOutput).max_tremaine_dot_com;
+				var books = data.favourite_books;
+				var url = window.location.href;
+				var title = getUrlObject()['title'];
+				for (book in books) {
+					if(book == title){
+						loadBook(books[book])
+					}
+				}
+			}
+			function loadBook(data) {
+				/**
+				 * Populates the article.
+				 */
+				var titleHeading = document.getElementById('title');
+				var authorSpan = document.getElementById('author');
+				var goodreadsLink = document.getElementById('link');
+				var descriptionParagraph = document.getElementById('description');
+				var favouriteQuote = document.getElementById('favouriteQuote');
+				var title = document.createTextNode(data.title);
+				var author = document.createTextNode(data.author);
+				var description = document.createTextNode(data.description);
+				var quote = document.createTextNode(data.favourite_quote);
+				titleHeading.appendChild(title);
+				authorSpan.appendChild(author);
+				goodreadsLink.href = data.link;
+				descriptionParagraph.appendChild(description);
+				favouriteQuote.appendChild(quote);
+			}
+			function goHome() {window.location.href = 'index.html#favourite_books';}
+			window.onload = function() {getData();}
+		</script>
+	</body>
+</html>
