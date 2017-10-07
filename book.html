@@ -34,11 +34,11 @@
 				rawPageData.onreadystatechange = function() {
 					if(rawPageData.readyState == 4 && rawPageData.status == 200) {
 						dataRouter(rawPageData.responseText);
+						getUrlTitle();
 					}
 				}
 				rawPageData.send();
 			}
-
 			function getUrlObject() {
 				var urlObject = {};
 				var url = window.location.href;
@@ -50,16 +50,22 @@
 				}
 				return urlObject;
 			}
+
+			// THIS IS GOING TO BE USED INSTEAD OF GET URL OBJECT WITH NODE
+
+			function getUrlTitle() {
+				var url = new URL(window.location);
+				var path = url.pathname.split('/');
+				return path[2];
+			}
+
+			// DO IT
+
 			function dataRouter(databaseOutput) {
 				var data = JSON.parse(databaseOutput).max_tremaine_dot_com;
 				var books = data.favourite_books;
-				var url = window.location.href;
-				var title = getUrlObject()['title'];
-				for (book in books) {
-					if(book == title){
-						loadBook(books[book])
-					}
-				}
+				var title = getUrlTitle();
+				loadBook(books[title]);
 			}
 			function loadBook(data) {
 				/**
@@ -80,7 +86,7 @@
 				descriptionParagraph.appendChild(description);
 				favouriteQuote.appendChild(quote);
 			}
-			function goHome() {window.location.href = 'index.html#favourite_books';}
+			function goHome() {window.location.href = '/';}
 			window.onload = function() {getData();}
 		</script>
 	</body>
