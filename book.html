@@ -24,6 +24,7 @@
 			</article>
 		</section>
 		<script>
+			window.onload = function() {getData();}
 			function getData() {
 				var dataURL = 'max_tremaine_dot_com.json'
 				var rawPageData = new XMLHttpRequest();
@@ -51,9 +52,8 @@
 			// THIS IS GOING TO BE USED INSTEAD OF GET URL OBJECT WITH NODE
 
 			function getUrlTitle() {
-				var url = new URL(window.location);
-				var path = url.pathname.split('/');
-				return path[2];
+				const params = (new URL(document.location)).searchParams;
+				return params.get('title');
 			}
 
 			// DO IT
@@ -83,7 +83,6 @@
 				descriptionParagraph.appendChild(description);
 				favouriteQuote.appendChild(quote);
 			}
-			window.onload = function() {getData();}
 		</script>
 	</body>
 </html>

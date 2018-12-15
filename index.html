@@ -76,18 +76,10 @@
 			 */
 			window.onload = function() {
 				showSections();
-				getData();
-			}
-			/**
-			 * The following AJAX functions get the website setup.
-			 * The flow starts by showing the articles if JS is on, then populates them.
-			 */
-
-			 function getData() {
-				 fetch('max_tremaine_dot_com.json')
+				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
 					 .then(dataRouter);
-			 }
+			}
 			function showSections() {
 				// Show all of the labels and buttons to accompany data.
 				var labelsAndButtons = document.getElementsByClassName('data_loaded');
