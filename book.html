@@ -33,9 +33,6 @@
 				const params = (new URL(document.location)).searchParams;
 				return params.get('title');
 			}
-
-			// DO IT
-
 			function dataRouter(databaseOutput) {
 				var data = databaseOutput.max_tremaine_dot_com;
 				var books = data.favourite_books;
@@ -43,9 +40,6 @@
 				loadBook(books[title]);
 			}
 			function loadBook(data) {
-				/**
-				 * Populates the article.
-				 */
 				var titleHeading = document.getElementById('title');
 				var authorSpan = document.getElementById('author');
 				var goodreadsLink = document.getElementById('link');
