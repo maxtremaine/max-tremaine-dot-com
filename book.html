@@ -32,7 +32,6 @@
 				rawPageData.onreadystatechange = function() {
 					if(rawPageData.readyState == 4 && rawPageData.status == 200) {
 						dataRouter(rawPageData.responseText);
-						getUrlTitle();
 					}
 				}
 				rawPageData.send();
