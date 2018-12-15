@@ -5,7 +5,7 @@
 		<title>Max Tremaine.com</title>
 		<link href="icon.jpg" rel="icon" type="image/jpeg" />
 		<link href="https://fonts.googleapis.com/css?family=Lato|Josefin+Slab:100" rel="stylesheet" />
-		<link href="drc.css" rel="stylesheet">
+		<link href="drc.css" rel="stylesheet" />
 		<style>
 			h1, h2 {
 				padding: 18vh 1vh;
@@ -71,23 +71,23 @@
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
 		<script>
-
+			/**
+			 * Coordinates site construction from data.
+			 */
+			window.onload = function() {
+				showSections();
+				getData();
+			}
 			/**
 			 * The following AJAX functions get the website setup.
 			 * The flow starts by showing the articles if JS is on, then populates them.
 			 */
 
 			 function getData() {
-				var dataURL = 'max_tremaine_dot_com.json'
-				var rawPageData = new XMLHttpRequest();
-				rawPageData.open('GET', dataURL, true);
-				rawPageData.onreadystatechange = function() {
-					if(rawPageData.readyState == 4 && rawPageData.status == 200) {
-						dataRouter(rawPageData.responseText);
-					}
-				}
-				rawPageData.send();
-			}
+				 fetch('max_tremaine_dot_com.json')
+					 .then(response => response.json())
+					 .then(data => dataRouter(JSON.stringify(data)));
+			 }
 			function showSections() {
 				// Show all of the labels and buttons to accompany data.
 				var labelsAndButtons = document.getElementsByClassName('data_loaded');
@@ -300,10 +300,6 @@
 				var extraClassElements = document.getElementsByClassName(extraClass);
 				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
 			}
-			window.onload = function() {
-				showSections();
-				getData();
-			}
 			(function(i, s, o, g, r, a, m){
 				// Google Tracking Code
 				i['GoogleAnalyticsObject'] = r;
@@ -317,7 +313,6 @@
 				a.src = g;
 				m.parentNode.insertBefore(a, m)
 			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
 			ga('create', 'UA-45002570-1', 'auto');
 			ga('send', 'pageview');
 		</script>
