@@ -13,9 +13,6 @@
 		</style>
 	</head>
 	<body>
-		<nav style="position:fixed;bottom:0;padding:1vh;border-top:0.1vh solid black;width:100vw;bottom:0;background-color:#560a0a;text-align:center;">
-			<button onclick="goHome()">Home</button>
-		</nav>
 		<section>
 			<article>
 				<h1 id="title" style="font-size: 6vh;"></h1>
@@ -86,7 +83,6 @@
 				descriptionParagraph.appendChild(description);
 				favouriteQuote.appendChild(quote);
 			}
-			function goHome() {window.location.href = '/';}
 			window.onload = function() {getData();}
 		</script>
 	</body>

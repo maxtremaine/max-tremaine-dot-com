@@ -13,15 +13,6 @@
 		</style>
 	</head>
 	<body>
-		<nav style="position:fixed;bottom:0;padding:1vh;border-top:0.1vh solid black;width:100vw;bottom:0;background-color:#560a0a;text-align:center;color:white;">
-			Jump to:
-			<button onclick="scrollToSection('intro')">Intro</button>
-			<button onclick="scrollToSection('contact')">Contact</button>
-			<button onclick="scrollToSection('articles')">Articles</button>
-			<button onclick="scrollToSection('favourite_books')">Favourite Books</button>
-			<button onclick="scrollToSection('favourite_quotes')">Favourite Quotes</button>
-			<button onclick="scrollToSection('resume')">Resume</button>
-		</nav>
 		<section>
 			<article id="titles">
 				<h1 style="font-size:7vh;">Max Tremaine<span style="font-size:3vh;color:#6BADBE;">.com</span></h1>
@@ -307,7 +298,6 @@
 				var extraClassElements = document.getElementsByClassName(extraClass);
 				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
 			}
-			function scrollToSection(section) {document.getElementById(section).scrollIntoView();}
 			window.onload = function() {
 				showSections();
 				getData();
