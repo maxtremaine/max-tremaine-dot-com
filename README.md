@@ -9,3 +9,4 @@ This folder can be served as a website with any HTML server.
 - [x] Create a readme.
 - [ ] Update data pulls to use fetch().
 - [ ] Remove the navigation bar, and any associated attributes.
+- [ ] Replace .txt sitemap with a .xml sitemap.
