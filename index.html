@@ -86,7 +86,7 @@
 			 function getData() {
 				 fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
-					 .then(data => dataRouter(JSON.stringify(data)));
+					 .then(dataRouter);
 			 }
 			function showSections() {
 				// Show all of the labels and buttons to accompany data.
@@ -96,7 +96,7 @@
 				}
 			}
 			function dataRouter(databaseOutput) {
-				var data = JSON.parse(databaseOutput).max_tremaine_dot_com;
+				var data = databaseOutput.max_tremaine_dot_com;
 				var articleData = data.articles;
 				var resumeData = data.resume;
 				var bookData = data.favourite_books;
