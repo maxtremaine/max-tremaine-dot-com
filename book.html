@@ -24,16 +24,23 @@
 			</article>
 		</section>
 		<script>
+			/**
+			 * Get data and populate the page.
+			 */
 			window.onload = () => {
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
 					 .then(data => {
 						data = data.max_tremaine_dot_com.favourite_books;
 						const title = (new URL(document.location)).searchParams.get('title');
-						loadBook(data[title]);
+						populateFields(data[title]);
 					 });
 			}
-			function loadBook(data) {
+			/**
+			 * Take data and populate the page.
+			 * @param {any} data - Object containing my favourite books.
+			 */
+			function populateFields(data) {
 				var titleHeading = document.getElementById('title');
 				var authorSpan = document.getElementById('author');
 				var goodreadsLink = document.getElementById('link');

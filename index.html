@@ -74,7 +74,7 @@
 			/**
 			 * Coordinates site construction from data.
 			 */
-			window.onload = function() {
+			window.onload = () => {
 				showSections();
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
