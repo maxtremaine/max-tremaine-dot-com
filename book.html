@@ -27,13 +27,11 @@
 			window.onload = () => {
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
-					 .then(dataRouter);
-			}
-			function dataRouter(databaseOutput) {
-				var data = databaseOutput.max_tremaine_dot_com;
-				var books = data.favourite_books;
-				var title = (new URL(document.location)).searchParams.get('title');
-				loadBook(books[title]);
+					 .then(data => {
+						data = data.max_tremaine_dot_com.favourite_books;
+						const title = (new URL(document.location)).searchParams.get('title');
+						loadBook(data[title]);
+					 });
 			}
 			function loadBook(data) {
 				var titleHeading = document.getElementById('title');
