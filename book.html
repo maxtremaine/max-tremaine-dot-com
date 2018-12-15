@@ -29,14 +29,10 @@
 					 .then(response => response.json())
 					 .then(dataRouter);
 			}
-			function getUrlTitle() {
-				const params = (new URL(document.location)).searchParams;
-				return params.get('title');
-			}
 			function dataRouter(databaseOutput) {
 				var data = databaseOutput.max_tremaine_dot_com;
 				var books = data.favourite_books;
-				var title = getUrlTitle();
+				var title = (new URL(document.location)).searchParams.get('title');
 				loadBook(books[title]);
 			}
 			function loadBook(data) {
