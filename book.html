@@ -37,20 +37,6 @@
 				}
 				rawPageData.send();
 			}
-			function getUrlObject() {
-				var urlObject = {};
-				var url = window.location.href;
-				var queryString = url.substring(url.indexOf('?') + 1);
-				var queries = queryString.split('&');
-				for(var i = 0; i < queries.length; i++) {
-					var pair = queries[i].split('=');
-					urlObject[pair[0]] = pair[1];
-				}
-				return urlObject;
-			}
-
-			// THIS IS GOING TO BE USED INSTEAD OF GET URL OBJECT WITH NODE
-
 			function getUrlTitle() {
 				const params = (new URL(document.location)).searchParams;
 				return params.get('title');
