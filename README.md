@@ -14,3 +14,4 @@ This folder can be served as a website with any HTML server.
 - [x] Update data pulls to use fetch().
 - [ ] Catch errors in fetch().
 - [ ] Add documentation to scripts.
+- [ ] Update function that shows articles to work on the section instead.
