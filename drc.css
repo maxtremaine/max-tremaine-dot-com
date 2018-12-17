@@ -6,8 +6,11 @@
 h2 {
 	font-family: "Josefin Slab", serif;
 }
-h2, h3, p, q, table, ul {
+h2, h3, p, q, table {
 	display: block;
+	padding: 1vh 2vw;
+}
+ul, ol {
 	padding: 1vh 3vw;
 }
 h3 {
