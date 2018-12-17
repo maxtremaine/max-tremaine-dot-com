@@ -34,7 +34,8 @@
 						data = data.max_tremaine_dot_com.favourite_books;
 						const title = (new URL(document.location)).searchParams.get('title');
 						populateFields(data[title]);
-					 });
+					 })
+					 .catch(console.error);
 			}
 			/**
 			 * Take data and populate the page.

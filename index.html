@@ -89,7 +89,8 @@
 						 loadResume(data.resume);
 						 hideExtras();
 						 logMeta(data.meta);
-					 });
+					 })
+					 .catch(console.error);
 			}
 			function loadArticles(data) {
 				var articlesSection = document.getElementById('article_table');
