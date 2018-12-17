@@ -81,21 +81,15 @@
 				document.getElementById('articles_from_data').style.display = 'block';
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
-					 .then(dataRouter);
-			}
-			function dataRouter(databaseOutput) {
-				var data = databaseOutput.max_tremaine_dot_com;
-				var articleData = data.articles;
-				var resumeData = data.resume;
-				var bookData = data.favourite_books;
-				var quoteData = data.favourite_quotes;
-				var meta = data.meta;
-				loadArticles(articleData);
-				loadBooks(bookData);
-				loadQuotes(quoteData);
-				loadResume(resumeData);
-				hideExtras();
-				logMeta(meta);
+					 .then(data => {
+						 data = data.max_tremaine_dot_com;
+						 loadArticles(data.articles);
+						 loadBooks(data.favourite_books);
+						 loadQuotes(data.favourite_quotes);
+						 loadResume(data.resume);
+						 hideExtras();
+						 logMeta(data.meta);
+					 });
 			}
 			function loadArticles(data) {
 				var articlesSection = document.getElementById('article_table');
