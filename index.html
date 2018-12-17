@@ -78,7 +78,7 @@
 			 * Coordinates site construction from data.
 			 */
 			window.onload = () => {
-				document.getElementById('articles_from_data').style.display = 'block';
+				document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
 					 .then(data => {
@@ -247,10 +247,6 @@
 				console.log(['Last Updated: ', data.last_updated].join(''));
 				console.log(data.welcome_message);
 			}
-
-			/**
-			 */
-
 			function sortObject(obj, sortKey) {
 				/**
 				 * Turn an object into a sorted array.
