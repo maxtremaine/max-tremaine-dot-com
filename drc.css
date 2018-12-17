@@ -6,9 +6,9 @@
 h2 {
 	font-family: "Josefin Slab", serif;
 }
-h2, h3, p, q {
+h2, h3, p, q, table, ul {
 	display: block;
-	padding: 1vh 2vh;
+	padding: 1vh 3vw;
 }
 h3 {
 	font-size: 4vh;
