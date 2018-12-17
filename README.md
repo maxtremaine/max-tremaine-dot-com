@@ -13,4 +13,3 @@ This folder can be served as a website with any HTML server.
 - [x] Remove the sitemap.
 - [x] Update data pulls to use fetch().
 - [ ] Catch errors in fetch().
-- [ ] Consolidate some of the .js into a file.
