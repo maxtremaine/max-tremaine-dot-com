@@ -29,9 +29,6 @@ a:visited {
 a:hover, a:active {
 	color: #726152;
 }
-.data_loaded, .fewer {
-	display: none;
-}
 .list_button {
 	margin: 2vh;
 }

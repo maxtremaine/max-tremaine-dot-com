@@ -10,6 +10,9 @@
 			h1, h2 {
 				padding: 18vh 1vh;
 			}
+			.data_loaded, .fewer {
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -80,8 +83,10 @@
 					 .then(response => response.json())
 					 .then(dataRouter);
 			}
+			/**
+			 * Shows the sections for which data is loaded.
+			 */
 			function showSections() {
-				// Show all of the labels and buttons to accompany data.
 				var labelsAndButtons = document.getElementsByClassName('data_loaded');
 				for(var i = 0; i < labelsAndButtons.length; i++) {
 					labelsAndButtons[i].style.display = 'inline';
