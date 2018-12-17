@@ -10,7 +10,7 @@
 			h1, h2 {
 				padding: 18vh 2vw;
 			}
-			.data_loaded, .fewer {
+			.fewer {
 				display: none;
 			}
 		</style>
@@ -40,29 +40,29 @@
 				<hr />
 			</article>
 		</section>
-		<section>
-			<article id="articles" class="data_loaded">
+		<section id="articles_from_data" style="display:none;">
+			<article id="articles">
 				<h3>Articles:</h3>
 				<table id="article_table"></table>
 				<button id="more_articles" class="list_button" onclick="listButton('extra_articles','more_articles','fewer_articles','table-row')">More</button>
 				<button id="fewer_articles" class="fewer list_button" onclick="listButton('extra_articles','fewer_articles','more_articles')">Fewer</button>
 				<hr />
 			</article>
-			<article id="favourite_books" class="data_loaded">
+			<article id="favourite_books">
 				<h3>Favourite Books:</h3>
 				<ol id="favourite_books_list" style="margin: 2vh 3vh;"></ol>
 				<button id="more_books" class="list_button" onclick="listButton('extra_books','more_books','fewer_books','list-item')">More</button>
 				<button id="fewer_books" class="fewer list_button" onclick="listButton('extra_books','fewer_books','more_books')">Fewer</button>
 				<hr />
 			</article>
-			<article id="favourite_quotes" class="data_loaded">
+			<article id="favourite_quotes">
 				<h3>Favourite Quotes:</h3>
 				<ul id="favourite_quotes_list"></ul>
 				<button id="more_quotes" class="list_button" onclick="listButton('extra_quotes','more_quotes','fewer_quotes','list-item')">More</button>
 				<button id="fewer_quotes" class="fewer list_button" onclick="listButton('extra_quotes','fewer_quotes','more_quotes')">Fewer</button>
 				<hr />
 			</article>
-			<article id="resume" class="data_loaded">
+			<article id="resume">
 				<h3>Resume:</h3>
 				<table id="resume_table"></table>
 				<button id="more_jobs" class="list_button" onclick="listButton('extra_jobs','more_jobs','fewer_jobs','table-row')">More</button>
@@ -78,19 +78,10 @@
 			 * Coordinates site construction from data.
 			 */
 			window.onload = () => {
-				showSections();
+				document.getElementById('articles_from_data').style.display = 'block';
 				fetch('max_tremaine_dot_com.json')
 					 .then(response => response.json())
 					 .then(dataRouter);
-			}
-			/**
-			 * Shows the sections for which data is loaded.
-			 */
-			function showSections() {
-				var labelsAndButtons = document.getElementsByClassName('data_loaded');
-				for(var i = 0; i < labelsAndButtons.length; i++) {
-					labelsAndButtons[i].style.display = 'inline';
-				}
 			}
 			function dataRouter(databaseOutput) {
 				var data = databaseOutput.max_tremaine_dot_com;

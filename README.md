@@ -12,6 +12,6 @@ This folder can be served as a website with any HTML server.
 - [x] Remove the navigation bar, and any associated attributes.
 - [x] Remove the sitemap.
 - [x] Update data pulls to use fetch().
-- [ ] Update function that shows articles to work on the section instead.
+- [x] Update function that shows articles to work on the section instead.
 - [ ] Catch errors in fetch().
 - [ ] Add documentation to scripts.
