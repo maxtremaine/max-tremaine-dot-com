@@ -20,6 +20,9 @@ h3 {
 table {
 	border-collapse: collapse;
 }
+hr {
+	margin: 4vh 0;
+}
 a:link, h2 {
 	color: #BE8D5E;
 }
