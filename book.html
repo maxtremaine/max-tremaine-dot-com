@@ -31,7 +31,7 @@
 				try {
 					const title = (new URL(document.location)).searchParams.get('title');
 					let data = await fetch('max_tremaine_dot_com.json');
-					data = data.json();
+					data = await data.json();
 					data = data.max_tremaine_dot_com.favourite_books;
 					populateFields(data[title]);
 				} catch(err) {
