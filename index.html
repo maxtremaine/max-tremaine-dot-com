@@ -79,10 +79,10 @@
 			 */
 			window.onload = async function() {
 				try {
-					document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
 					let data = await fetch('max_tremaine_dot_com.json');
 					data = await data.json();
 					data = data.max_tremaine_dot_com;
+					document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
 					loadArticles(data.articles);
 					loadBooks(data.favourite_books);
 					loadQuotes(data.favourite_quotes);
