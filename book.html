@@ -27,16 +27,17 @@
 			/**
 			 * Get data and populate the page.
 			 */
-			window.onload = () => {
-				fetch('max_tremaine_dot_com.json')
-					 .then(response => response.json())
-					 .then(data => {
-						data = data.max_tremaine_dot_com.favourite_books;
-						const title = (new URL(document.location)).searchParams.get('title');
-						populateFields(data[title]);
-					 })
-					 .catch(console.error);
-			}
+			window.onload = async function() {
+				try {
+					const title = (new URL(document.location)).searchParams.get('title');
+					let data = await fetch('max_tremaine_dot_com.json');
+					data = data.json();
+					data = data.max_tremaine_dot_com.favourite_books;
+					populateFields(data[title]);
+				} catch(err) {
+					console.error(err);
+				}
+			};
 			/**
 			 * Take data and populate the page.
 			 * @param {any} data - Object containing my favourite books.
