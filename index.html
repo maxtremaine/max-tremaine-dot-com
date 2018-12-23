@@ -73,25 +73,26 @@
 		<footer style="margin-bottom:10vh;">
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
-		<script>
+		<script async>
 			/**
 			 * Coordinates site construction from data.
 			 */
-			window.onload = () => {
-				document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
-				fetch('max_tremaine_dot_com.json')
-					 .then(response => response.json())
-					 .then(data => {
-						 data = data.max_tremaine_dot_com;
-						 loadArticles(data.articles);
-						 loadBooks(data.favourite_books);
-						 loadQuotes(data.favourite_quotes);
-						 loadResume(data.resume);
-						 hideExtras();
-						 logMeta(data.meta);
-					 })
-					 .catch(console.error);
-			}
+			window.onload = async function() {
+				try {
+					document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
+					let data = await fetch('max_tremaine_dot_com.json');
+					data = await data.json();
+					data = data.max_tremaine_dot_com;
+					loadArticles(data.articles);
+					loadBooks(data.favourite_books);
+					loadQuotes(data.favourite_quotes);
+					loadResume(data.resume);
+					hideExtras();
+					logMeta(data.meta);
+				} catch(err) {
+					console.error(err);
+				}
+			};
 			function loadArticles(data) {
 				var articlesSection = document.getElementById('article_table');
 				for(var i = 0, j = 1; i < data.length; i++, j++) {

@@ -14,4 +14,5 @@ This folder can be served as a website with any HTML server.
 - [x] Update data pulls to use fetch().
 - [x] Update function that shows articles to work on the section instead.
 - [x] Catch errors in fetch().
+- [x] Rewrite anything that depends on Promises to use async functions instead.
 - [ ] Add documentation to scripts.
