@@ -52,6 +52,7 @@
 				const author = document.createTextNode(data.author);
 				const description = document.createTextNode(data.description);
 				const quote = document.createTextNode(data.favourite_quote);
+				document.title = `Max's Books: ${data.title}`; 
 				titleHeading.appendChild(title);
 				authorSpan.appendChild(author);
 				goodreadsLink.href = data.link;
