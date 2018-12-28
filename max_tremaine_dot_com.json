@@ -112,9 +112,14 @@
     },
     "favourite_quotes": [
       {
-        "quote": "The worth of a man is his price.",
+        "quote": "One's worth is their price.",
         "author": "Thomas Hobbes",
-        "public": false
+        "public": true
+      },
+      {
+        "quote": "Industry is the enemy of melancholy",
+        "author": "William F. Buckley",
+        "public": true
       },
       {
         "quote": "Don't take refuge in the false security of consensus.",
@@ -122,23 +127,13 @@
         "public": true
       },
       {
-        "quote": "It’s tough to make predictions, especially about the future.",
-        "author": "Yogi Berra",
-        "public": true
-      },
-      {
         "quote": "Data is the sword of the 21st century, those who wield it well, the Samurai.",
         "author": "Jonathan Rosenberg",
-        "public": true
+        "public": false
       },
       {
         "quote": "Time makes fools of us all. Our only comfort is that greater shall come after us.",
         "author": "Eric Temple Bell",
-        "public": true
-      },
-      {
-        "quote": "A civilization is built on what is required of men, not on that which is provided to them.",
-        "author": "Antoine de Saint-Exupery",
         "public": false
       },
       {
@@ -149,7 +144,17 @@
       {
         "quote": "In mathematics the art of proposing a question must be held of higher value than solving it.",
         "author": "Georg Cantor",
-        "public": true
+        "public": false
+      },
+      {
+        "quote": "There is no dignity quite so impressive, and no one independence quite so important, as living within your means.",
+        "author": "Calvin Coolidge",
+        "public": false
+      },
+      {
+        "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
+        "author": "Albert Einstein",
+        "public": false
       },
       {
         "quote": "The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
@@ -157,9 +162,19 @@
         "public": true
       },
       {
+        "quote": "The Don Quixote of the twenty-first century will not be a knight-errant struggling to revive the glories of feudalism but a bureaucrat in a brown suit, a tax collector yearning for a citizen to audit.",
+        "author": "James Dale Davidson & William Rees Mogg",
+        "public": true
+      },
+      {
         "quote": "[If] you think of the world as consisting of lottery tickets, you have set yourself up to lose. ... Even though there may be things that involve irreducible elements of luck, it's not an intellectual truth about the world.",
         "author": "Peter Thiel",
         "public": true
+      },
+      {
+        "quote": "Today, we examine people under an electron microscope if they're running for dogcatcher, and I think this is the single biggest reason that more talented people don't run for public office... the extreme transparency in some ways naturally leads in a toxic direction, away from policy.",
+        "author": "Peter Thiel",
+        "public": false
       }
     ],
     "resume": [
