@@ -74,6 +74,8 @@
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
 		<script async>
+			const page = document;
+			page.get = page.getElementById;
 			/**
 			 * Coordinates site construction from data.
 			 */
@@ -82,7 +84,7 @@
 					let data = await fetch('max_tremaine_dot_com.json');
 					data = await data.json();
 					data = data.max_tremaine_dot_com;
-					document.getElementById('articles_from_data').style.display = 'block'; // Show loaded section.
+					page.get('articles_from_data').style.display = 'block'; // Show loaded section.
 					loadArticles(data.articles);
 					loadBooks(data.favourite_books);
 					loadQuotes(data.favourite_quotes);
@@ -94,7 +96,7 @@
 				}
 			};
 			function loadArticles(data) {
-				var articlesSection = document.getElementById('article_table');
+				var articlesSection = page.get('article_table');
 				for(var i = 0, j = 1; i < data.length; i++, j++) {
 					/**
 					 * This loop creates article items in the following format:
@@ -128,7 +130,7 @@
 				}
 			}
 			function loadBooks(data) {
-				var booksList = document.getElementById('favourite_books_list');
+				var booksList = page.get('favourite_books_list');
 				var sortedData = sortObject(data, 'rank');
 				for(var i = 0; i < sortedData.length; i++) {
 					/**
@@ -153,7 +155,7 @@
 				}
 			}
 			function loadQuotes(data) {
-				var quotesList = document.getElementById('favourite_quotes_list');
+				var quotesList = page.get('favourite_quotes_list');
 				for(var i = 0, j = 0; i < data.length; i++) {
 					/**
 					 * This loop creates quote items in the following format:
@@ -181,7 +183,7 @@
 				}
 			}
 			function loadResume(data) {
-				var resumeSection = document.getElementById('resume_table');
+				var resumeSection = page.get('resume_table');
 				for(var i = 0; i < data.length; i++) {
 					/**
 					 * This loop creates resume items in the following format:
@@ -274,8 +276,8 @@
 			}
 			function listButton(extraClass, buttonToHide, buttonToShow, extraClassDisplayValue) {
 				if(extraClassDisplayValue === undefined) {extraClassDisplayValue = 'none';}
-				document.getElementById(buttonToHide).style.display = 'none';
-				document.getElementById(buttonToShow).style.display = 'block';
+				page.get(buttonToHide).style.display = 'none';
+				page.get(buttonToShow).style.display = 'block';
 				var extraClassElements = document.getElementsByClassName(extraClass);
 				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
 			}
