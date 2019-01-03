@@ -76,6 +76,8 @@
 		<script async>
 			const page = document;
 			page.get = page.getElementById;
+			page.create = page.createElement;
+			page.text = page.createTextNode;
 			/**
 			 * Coordinates site construction from data.
 			 */
@@ -107,12 +109,12 @@
 					 *     <td style="padding: 2vh;">[description]</td>
 					 * </tr>
 					 */
-					var articleRow = document.createElement('tr');
-					var leftData = document.createElement('td');
-					var articleLink = document.createElement('a');
-					var articleTitle = document.createTextNode(data[i].title);
-					var rightData = document.createElement('td');
-					var articleDescription = document.createTextNode(data[i].description);
+					var articleRow = page.create('tr');
+					var leftData = page.create('td');
+					var articleLink = page.create('a');
+					var articleTitle = page.text(data[i].title);
+					var rightData = page.create('td');
+					var articleDescription = page.text(data[i].description);
 					var article_padding = 'padding: 2vh;';
 					articlesSection.appendChild(articleRow);
 					articleRow.className = (i > 1) ? 'extra_articles' : '';
@@ -142,10 +144,10 @@
 					 */
 
 					var link = ['book.html?title=', sortedData[i].key].join('');
-					var bookItem = document.createElement('li');
-					var bookLink = document.createElement('a');
-					var title = document.createTextNode(sortedData[i].title);
-					var author = document.createTextNode(' by ' + sortedData[i].author);
+					var bookItem = page.create('li');
+					var bookLink = page.create('a');
+					var title = page.text(sortedData[i].title);
+					var author = page.text(' by ' + sortedData[i].author);
 					booksList.appendChild(bookItem);
 					bookItem.className = (i > 2) ? 'extra_books' : '';
 					bookItem.appendChild(bookLink);
@@ -165,11 +167,11 @@
 					 * </li>
 					 */
 					if(data[i].public) {
-						var quoteItem = document.createElement('li');
-						var quoteElement = document.createElement('q');
-						var quote = document.createTextNode(data[i].quote);
-						var authorElement = document.createElement('p');
-						var author = document.createTextNode('- ' + data[i].author);
+						var quoteItem = page.create('li');
+						var quoteElement = page.create('q');
+						var quote = page.text(data[i].quote);
+						var authorElement = page.create('p');
+						var author = page.text('- ' + data[i].author);
 						quotesList.appendChild(quoteItem);
 						quoteItem.className = (j > 1) ? 'extra_quotes' : '';
 						quoteItem.style = 'list-style-type:none; margin: 2vh 1vh;';
@@ -198,17 +200,17 @@
 					 *     <td style="padding: 2vh;" class="detail">[detail]</td>
 					 * </tr>
 					 */
-					var topRow = document.createElement('tr');
-					var topLeft = document.createElement('td');
-					var jobLink = document.createElement('a');
-					var company = document.createTextNode(data[i].company);
-					var topRight = document.createElement('td');
-					var title = document.createTextNode(data[i].title);
-					var bottomRow = document.createElement('tr');
-					var bottomLeft = document.createElement('td');
-					var period = document.createTextNode(data[i].period);
-					var bottomRight = document.createElement('td');
-					var description = document.createTextNode(data[i].description);
+					var topRow = page.create('tr');
+					var topLeft = page.create('td');
+					var jobLink = page.create('a');
+					var company = page.text(data[i].company);
+					var topRight = page.create('td');
+					var title = page.text(data[i].title);
+					var bottomRow = page.create('tr');
+					var bottomLeft = page.create('td');
+					var period = page.text(data[i].period);
+					var bottomRight = page.create('td');
+					var description = page.text(data[i].description);
 					var item_padding = 'padding: 2vh;';
 					resumeSection.appendChild(topRow);
 					topRow.className = (i > 0) ? 'extra_jobs' : '';
