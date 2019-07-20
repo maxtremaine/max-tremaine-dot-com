@@ -35,16 +35,14 @@
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						try {
-							var data;
-							data = JSON.parse(xhr.responseText);
-							data = data.max_tremaine_dot_com.favourite_books
+							var data = JSON.parse(xhr.responseText).data.max_tremaine_dot_com;
 							populatePage(data[title]);
 						} catch(err) {
 							console.error(err);
 						}
 					}
 				}
-				xhr.send()
+				xhr.send();
 			};
 			/**
 			 * Take data and populate the page.
