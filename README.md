@@ -1,18 +1,18 @@
-# Max Tremaine Dot Com
+Max Tremaine Dot Com
+====================
 
 My personal website, containing articles I've written and some other information.
 
-## Installation
+Installation
+------------
 
 This folder can be served as a website with any HTML server.
 
-## To-Dos
+To-Dos
+------
 
-- [x] Create a readme.
-- [x] Remove the navigation bar, and any associated attributes.
-- [x] Remove the sitemap.
-- [x] Update data pulls to use fetch().
-- [x] Update function that shows articles to work on the section instead.
-- [x] Catch errors in fetch().
-- [x] Rewrite anything that depends on Promises to use async functions instead.
-- [ ] Add documentation to scripts.
+- [ ] Make the website more browser-friendly.
+- [ ] |- Replace fetch with XMLHTTPRequest.
+- [ ] |- Replace const and let with var (and check for issues).
+- [ ] Clean up code.
+- [ ] |- Add documentation to functions.
