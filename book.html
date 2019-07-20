@@ -34,12 +34,8 @@
 				xhr.responseType = 'text';
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-						try {
-							var data = JSON.parse(xhr.responseText).max_tremaine_dot_com.favourite_books;
-							populatePage(data[title]);
-						} catch(err) {
-							console.error(err);
-						}
+						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com.favourite_books;
+						populatePage(data[title]);
 					}
 				}
 				xhr.send();
