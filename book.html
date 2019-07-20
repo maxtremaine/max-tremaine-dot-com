@@ -23,26 +23,34 @@
 				<q id="favouriteQuote"></q>
 			</article>
 		</section>
-		<script async>
+		<script>
 			/**
 			 * Get data and populate the page.
 			 */
-			window.onload = async function() {
-				try {
-					const title = (new URL(document.location)).searchParams.get('title');
-					let data = await fetch('max_tremaine_dot_com.json');
-					data = await data.json();
-					data = data.max_tremaine_dot_com.favourite_books;
-					populateFields(data[title]);
-				} catch(err) {
-					console.error(err);
+			window.onload = function() {
+				var title = (new URL(document.location)).searchParams.get('title');
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', 'max_tremaine_dot_com.json', true);
+				xhr.responseType = 'text';
+				xhr.onload = function() {
+					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+						try {
+							var data;
+							data = JSON.parse(xhr.responseText);
+							data = data.max_tremaine_dot_com.favourite_books
+							populatePage(data[title]);
+						} catch(err) {
+							console.error(err);
+						}
+					}
 				}
+				xhr.send()
 			};
 			/**
 			 * Take data and populate the page.
 			 * @param {any} data - Object containing my favourite books.
 			 */
-			function populateFields(data) {
+			function populatePage(data) {
 				const titleHeading = document.getElementById('title');
 				const authorSpan = document.getElementById('author');
 				const goodreadsLink = document.getElementById('link');

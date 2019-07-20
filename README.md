@@ -16,3 +16,4 @@ To-Dos
 - [ ] |- Replace const and let with var (and check for issues).
 - [ ] Clean up code.
 - [ ] |- Add documentation to functions.
+- [ ] |- Change underscores to dashes and camelCase.
