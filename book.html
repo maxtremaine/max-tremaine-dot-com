@@ -25,7 +25,7 @@
 		</section>
 		<script>
 			/**
-			 * Get data and populate the page.
+			 * Get data from /max_tremaine_dot_com.json and populate the page.
 			 */
 			window.onload = function() {
 				var title = (new URL(document.location)).searchParams.get('title');
@@ -35,7 +35,7 @@
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						try {
-							var data = JSON.parse(xhr.responseText).data.max_tremaine_dot_com;
+							var data = JSON.parse(xhr.responseText).max_tremaine_dot_com.favourite_books;
 							populatePage(data[title]);
 						} catch(err) {
 							console.error(err);
@@ -49,16 +49,16 @@
 			 * @param {any} data - Object containing my favourite books.
 			 */
 			function populatePage(data) {
-				const titleHeading = document.getElementById('title');
-				const authorSpan = document.getElementById('author');
-				const goodreadsLink = document.getElementById('link');
-				const descriptionParagraph = document.getElementById('description');
-				const favouriteQuote = document.getElementById('favouriteQuote');
-				const title = document.createTextNode(data.title);
-				const author = document.createTextNode(data.author);
-				const description = document.createTextNode(data.description);
-				const quote = document.createTextNode(data.favourite_quote);
-				document.title = `Max's Books: ${data.title}`; 
+				var titleHeading = document.getElementById('title');
+				var authorSpan = document.getElementById('author');
+				var goodreadsLink = document.getElementById('link');
+				var descriptionParagraph = document.getElementById('description');
+				var favouriteQuote = document.getElementById('favouriteQuote');
+				var title = document.createTextNode(data.title);
+				var author = document.createTextNode(data.author);
+				var description = document.createTextNode(data.description);
+				var quote = document.createTextNode(data.favourite_quote);
+				document.title = "Max's Books: " + data.title; 
 				titleHeading.appendChild(title);
 				authorSpan.appendChild(author);
 				goodreadsLink.href = data.link;
