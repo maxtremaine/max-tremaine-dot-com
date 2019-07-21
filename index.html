@@ -90,7 +90,7 @@
 						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com;
 						page.get('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
-						loadBooks(data.favourite_books);
+						Book.createBatch(data.favourite_books);
 						loadQuotes(data.favourite_quotes);
 						loadResume(data.resume);
 						hideExtras();
@@ -138,61 +138,59 @@
 			};
 			Article.createBatch = function(data) {
 				for(var i = 0; i < data.length; i++) {
-					console.log(data[i]);
 					var article = new Article(data[i].title, data[i].description, data[i].link);
 					article.load(i);
 				}
 			};
-			function loadArticles(data) {
-				var articlesSection = page.get('article_table');
-				for(var i = 0, j = 1; i < data.length; i++, j++) {
-					var articleRow = page.create('tr');
-					var leftData = page.create('td');
-					var articleLink = page.create('a');
-					var articleTitle = page.text(data[i].title);
-					var rightData = page.create('td');
-					var articleDescription = page.text(data[i].description);
-					var article_padding = 'padding: 2vh;';
-					articlesSection.appendChild(articleRow);
-					articleRow.className = (i > 1) ? 'extra_articles' : '';
-					articleRow.style = (j % 2 == 0) ? 'vertical-align: top; background-color: WhiteSmoke;' : 'vertical-align: top;';
-					articleRow.appendChild(leftData);
-					leftData.className = 'descriptor';
-					leftData.style = article_padding;
-					leftData.appendChild(articleLink);
-					articleLink.href = data[i].link;
-					articleLink.target = '_blank';
-					articleLink.appendChild(articleTitle);
-					articleRow.appendChild(rightData);
-					rightData.style = article_padding;
-					rightData.appendChild(articleDescription);
-				}
+			function Book(key,
+				title,
+				author,
+				link,
+				description,
+				favouriteQuote,
+				rank) {
+				this.key = key;
+				this.title = title;
+				this.author = author;
+				this.link = link;
+				this.description = description;
+				this.favouriteQuote = favouriteQuote;
+				this.rank = rank;
 			}
-			function loadBooks(data) {
-				var booksList = page.get('favourite_books_list');
-				var sortedData = sortObject(data, 'rank');
-				for(var i = 0; i < sortedData.length; i++) {
-					/**
-					 * This loop creates book items in the following format:
-					 * <li class=[class] style="list-style-position:inside;">
-					 *     <a href=[link] target="_blank">[title]</a>
-					 *     [author]
-					 * </li>
-					 */
-
-					var link = ['book.html?title=', sortedData[i].key].join('');
-					var bookItem = page.create('li');
-					var bookLink = page.create('a');
-					var title = page.text(sortedData[i].title);
-					var author = page.text(' by ' + sortedData[i].author);
-					booksList.appendChild(bookItem);
-					bookItem.className = (i > 2) ? 'extra_books' : '';
-					bookItem.appendChild(bookLink);
-					bookLink.href = link; 
-					bookLink.appendChild(title);
-					bookItem.appendChild(author);
+			Book.section = page.get('favourite_books_list');
+			/**
+			 * This loop creates book items in the following format:
+			 * <li class=[class] style="list-style-position:inside;">
+			 *     <a href=[link] target="_blank">[title]</a>
+			 *     [author]
+			 * </li>
+			 */
+			Book.prototype.load = function(i) {
+				var link = 'book.html?title=' + this.key;
+				var bookItem = page.create('li');
+				var bookLink = page.create('a');
+				var title = page.text(this.title);
+				var author = page.text(' by ' + this.author);
+				Book.section.appendChild(bookItem);
+				bookItem.className = i > 2 ? 'extra_books' : '';
+				bookItem.appendChild(bookLink);
+				bookLink.href = link;
+				bookLink.appendChild(title);
+				bookItem.appendChild(author);
+			};
+			Book.createBatch = function(data) {
+				data = sortObject(data, 'rank');
+				for(var i = 0; i < data.length; i++) {
+					var book = new Book(data[i].key,
+						data[i].title,
+						data[i].author,
+						data[i].link,
+						data[i].description,
+						data[i].favouriteQuote,
+						data[i].rank);
+					book.load(i);
 				}
-			}
+			};
 			function loadQuotes(data) {
 				var quotesList = page.get('favourite_quotes_list');
 				for(var i = 0, j = 0; i < data.length; i++) {
@@ -294,9 +292,11 @@
 				 * Turn an object into a sorted array.
 				 * Nested objects can be sorted by a key (sortKey).
 				 */
-				var out = Object.entries(obj);
+				var out;
+				out = Object.entries(obj);
 				out = out.map(function(x) {
-					let obj = x[1];
+					var obj;
+					obj = x[1];
 					obj['key'] = x[0];
 					return obj;
 				});
