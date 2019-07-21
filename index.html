@@ -81,34 +81,71 @@
 			/**
 			 * Coordinates site construction from data.
 			 */
-			window.onload = async function() {
-				try {
-					let data = await fetch('max_tremaine_dot_com.json');
-					data = await data.json();
-					data = data.max_tremaine_dot_com;
-					page.get('articles_from_data').style.display = 'block'; // Show loaded section.
-					loadArticles(data.articles);
-					loadBooks(data.favourite_books);
-					loadQuotes(data.favourite_quotes);
-					loadResume(data.resume);
-					hideExtras();
-					logMeta(data.meta);
-				} catch(err) {
-					console.error(err);
+			window.onload = function() {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', 'max_tremaine_dot_com.json', true);
+				xhr.responseText = 'text';
+				xhr.onload = function() {
+					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com;
+						page.get('articles_from_data').style.display = 'block';
+						Article.createBatch(data.articles);
+						loadBooks(data.favourite_books);
+						loadQuotes(data.favourite_quotes);
+						loadResume(data.resume);
+						hideExtras();
+						logMeta(data.meta);
+					}
+				}
+				xhr.send();
+			}
+			function Article(title, description, link) {
+				this.title = title;
+				this.description = description;
+				this.link = link;
+			}
+			Article.section = page.get('article_table');
+			/**
+			 * This loop creates article items in the following format:
+			 * <tr class=[class] style="vertical-align: top;">
+			 *     <td style="padding: 2vh;">
+			 *          <a href=[link] target="_blank">[title]</a>
+			 *     </td>
+			 *     <td style="padding: 2vh;">[description]</td>
+			 * </tr>
+			 */
+			Article.prototype.load = function(i) {
+				var articleRow = page.create('tr');
+				var leftData = page.create('td');
+				var articleLink = page.create('a');
+				var articleTitle = page.text(this.title);
+				var rightData = page.create('td');
+				var articleDescription = page.text(this.description);
+				var articlePadding = 'padding: 2vh;';
+				Article.section.appendChild(articleRow);
+				articleRow.className = i > 1 ? 'extra_articles' : '';
+				articleRow.style = (i + 1) % 2 === 0 ? 'vertical-align: top; background-color: WhiteSmoke;' : 'vertical-align: top;';
+				articleRow.appendChild(leftData);
+				leftData.className = 'descriptor';
+				leftData.style = articlePadding;
+				leftData.appendChild(articleLink);
+				articleLink.href = this.link;
+				articleLink.target = '_blank';
+				articleLink.appendChild(articleTitle);
+				articleRow.appendChild(rightData);
+				rightData.style = articlePadding;
+				rightData.appendChild(articleDescription);
+			};
+			Article.createBatch = function(data) {
+				for(var i = 0; i < data.length; i++) {
+					console.log(data[i]);
+					var article = new Article(data[i].title, data[i].description, data[i].link);
+					article.load(i);
 				}
 			};
 			function loadArticles(data) {
 				var articlesSection = page.get('article_table');
 				for(var i = 0, j = 1; i < data.length; i++, j++) {
-					/**
-					 * This loop creates article items in the following format:
-					 * <tr class=[class] style="vertical-align: top;">
-					 *     <td style="padding: 2vh;">
-					 *          <a href=[link] target="_blank">[title]</a>
-					 *     </td>
-					 *     <td style="padding: 2vh;">[description]</td>
-					 * </tr>
-					 */
 					var articleRow = page.create('tr');
 					var leftData = page.create('td');
 					var articleLink = page.create('a');
