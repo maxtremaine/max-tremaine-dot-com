@@ -73,7 +73,7 @@
 		<footer style="margin-bottom:10vh;">
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
-		<script async>
+		<script>
 			const page = document;
 			page.get = page.getElementById;
 			page.create = page.createElement;
@@ -99,6 +99,12 @@
 				}
 				xhr.send();
 			}
+			/**
+			 * @class
+			 * @param {string} title
+			 * @param {string} description
+			 * @param {string} link
+			 */
 			function Article(title, description, link) {
 				this.title = title;
 				this.description = description;
@@ -142,13 +148,17 @@
 					article.load(i);
 				}
 			};
-			function Book(key,
-				title,
-				author,
-				link,
-				description,
-				favouriteQuote,
-				rank) {
+			/**
+			 * @class
+			 * @param {string} key
+			 * @param {string} title
+			 * @param {string} author
+			 * @param {string} link
+			 * @param {string} description
+			 * @param {string} favouriteQuote
+			 * @param {number} rank
+			 */
+			function Book(key, title, author, link, description,favouriteQuote, rank) {
 				this.key = key;
 				this.title = title;
 				this.author = author;
@@ -179,15 +189,10 @@
 				bookItem.appendChild(author);
 			};
 			Book.createBatch = function(data) {
-				data = sortObject(data, 'rank');
+				data = data.toSortedArray('rank');
 				for(var i = 0; i < data.length; i++) {
-					var book = new Book(data[i].key,
-						data[i].title,
-						data[i].author,
-						data[i].link,
-						data[i].description,
-						data[i].favouriteQuote,
-						data[i].rank);
+					var book = new Book(data[i].key, data[i].title, data[i].author, data[i].link,
+						data[i].description, data[i].favouriteQuote, data[i].rank);
 					book.load(i);
 				}
 			};
@@ -287,13 +292,13 @@
 				console.log(['Last Updated: ', data.last_updated].join(''));
 				console.log(data.welcome_message);
 			}
-			function sortObject(obj, sortKey) {
+			Object.prototype.toSortedArray = function(sortKey) {
 				/**
 				 * Turn an object into a sorted array.
 				 * Nested objects can be sorted by a key (sortKey).
 				 */
 				var out;
-				out = Object.entries(obj);
+				out = Object.entries(this);
 				out = out.map(function(x) {
 					var obj;
 					obj = x[1];
