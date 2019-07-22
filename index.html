@@ -91,8 +91,8 @@
 						page.get('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
 						Book.createBatch(data.favourite_books);
-						loadQuotes(data.favourite_quotes);
-						loadResume(data.resume);
+						Quote.createBatch(data.favourite_quotes);
+						Job.createBatch(data.resume);
 						hideExtras();
 						logMeta(data.meta);
 					}
@@ -196,88 +196,113 @@
 					book.load(i);
 				}
 			};
-			function loadQuotes(data) {
-				var quotesList = page.get('favourite_quotes_list');
+			function Quote(quote, author, public) {
+				this.quote = quote;
+				this.author = author;
+				this.public = public;
+			}
+			Quote.section = page.get('favourite_quotes_list');
+			/**
+			 * This loop creates quote items in the following format:
+			 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
+			 *     <q>[quote]</q>
+			 *     <p style="text-align:right;">[author]</p>
+			 * </li>
+			 */
+			Quote.prototype.load = function(i, j) {
+				var output = {};
+				output.incrementJ = false;
+				if(this.public) {
+					var quoteItem = page.create('li');
+					var quoteElement = page.create('q');
+					var quote = page.text(this.quote);
+					var authorElement = page.create('p');
+					var author = page.text('- ' + this.author);
+					Quote.section.appendChild(quoteItem);
+					quoteItem.className = j > 1 ? 'extra_quotes' : '';
+					quoteItem.style = 'list-style-type:none;margin:2vh 1vh;';
+					quoteItem.appendChild(quoteElement);
+					quoteElement.appendChild(quote);
+					quoteItem.appendChild(authorElement);
+					authorElement.style = 'text-align:right;';
+					authorElement.appendChild(author);
+					output.incrementJ = true;
+				}
+				return output;
+			};
+			Quote.createBatch = function(data) {
 				for(var i = 0, j = 0; i < data.length; i++) {
-					/**
-					 * This loop creates quote items in the following format:
-					 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
-					 *     <q>[quote]</q>
-					 *     <p style="text-align:right;">[author]</p>
-					 * </li>
-					 */
-					if(data[i].public) {
-						var quoteItem = page.create('li');
-						var quoteElement = page.create('q');
-						var quote = page.text(data[i].quote);
-						var authorElement = page.create('p');
-						var author = page.text('- ' + data[i].author);
-						quotesList.appendChild(quoteItem);
-						quoteItem.className = (j > 1) ? 'extra_quotes' : '';
-						quoteItem.style = 'list-style-type:none; margin: 2vh 1vh;';
-						quoteItem.appendChild(quoteElement);
-						quoteElement.appendChild(quote);
-						quoteItem.appendChild(authorElement);
-						authorElement.style = 'text-align:right;';
-						authorElement.appendChild(author);
-						j++
-					}
+					var quote = new Quote(data[i].quote, data[i].author, data[i].public);
+					var loadedPage = quote.load(i, j);
+					if(loadedPage.incrementJ) j++;
 				}
+			};
+			function Job(company, title, period, description, link) {
+				this.company = company;
+				this.title = title;
+				this.period = period;
+				this.description = description;
+				this.link = link;
 			}
-			function loadResume(data) {
-				var resumeSection = page.get('resume_table');
+			Job.section = page.get('resume_table');
+			/**
+			 * This loop creates resume items in the following format:
+			 * <tr class=[class] style="vertical-align: top;">
+			 *     <td class="descriptor" style="padding: 2vh;">
+			 *         <a href=[link] target="_blank">[company]</a>
+			 *     </td>
+			 *     <td style="padding: 2vh;">[title]</td>
+			 * </tr>
+			 * <tr class=[class] style="vertical-align: top;">
+			 *     <td class="descriptor detail" style="padding: 2vh;">[period]</td>
+			 *     <td style="padding: 2vh;" class="detail">[detail]</td>
+			 * </tr>
+			 */
+			Job.prototype.load = function(i) {
+				var topRow = page.create('tr');
+				var topLeft = page.create('td');
+				var jobLink = page.create('a');
+				var company = page.text(this.company);
+				var topRight = page.create('td');
+				var title = page.text(this.title);
+				var bottomRow = page.create('tr');
+				var bottomLeft = page.create('td');
+				var period = page.text(this.period);
+				var bottomRight = page.create('td');
+				var description = page.text(this.description);
+				var itemPadding = 'padding: 2vh;';
+				Job.section.appendChild(topRow);
+				topRow.className = i > 0 ? 'extra_jobs' : '';
+				topRow.style = 'vertical-align:top;';
+				topRow.appendChild(topLeft);
+				topLeft.className = 'descriptor';
+				topLeft.style = itemPadding;
+				topLeft.appendChild(jobLink);
+				jobLink.href = this.link;
+				jobLink.target = '_blank';
+				jobLink.appendChild(company);
+				topRow.appendChild(topRight);
+				topRight.style = itemPadding;
+				topRight.appendChild(title);
+				Job.section.appendChild(bottomRow);
+				bottomRow.className = i > 0 ? 'extra_jobs' : '';
+				bottomRow.style = 'vertical-align:top;';
+				bottomRow.appendChild(bottomLeft);
+				bottomLeft.className = 'descriptor detail';
+				bottomLeft.style = itemPadding;
+				bottomLeft.appendChild(period);
+				bottomRow.appendChild(bottomRight);
+				bottomRight.className = 'detail';
+				bottomRight.style = itemPadding;
+				bottomRight.appendChild(description);
+			};
+			Job.createBatch = function(data) {
 				for(var i = 0; i < data.length; i++) {
-					/**
-					 * This loop creates resume items in the following format:
-					 * <tr class=[class] style="vertical-align: top;">
-					 *     <td class="descriptor" style="padding: 2vh;">
-					 *         <a href=[link] target="_blank">[company]</a>
-					 *     </td>
-					 *     <td style="padding: 2vh;">[title]</td>
-					 * </tr>
-					 * <tr class=[class] style="vertical-align: top;">
-					 *     <td class="descriptor detail" style="padding: 2vh;">[period]</td>
-					 *     <td style="padding: 2vh;" class="detail">[detail]</td>
-					 * </tr>
-					 */
-					var topRow = page.create('tr');
-					var topLeft = page.create('td');
-					var jobLink = page.create('a');
-					var company = page.text(data[i].company);
-					var topRight = page.create('td');
-					var title = page.text(data[i].title);
-					var bottomRow = page.create('tr');
-					var bottomLeft = page.create('td');
-					var period = page.text(data[i].period);
-					var bottomRight = page.create('td');
-					var description = page.text(data[i].description);
-					var item_padding = 'padding: 2vh;';
-					resumeSection.appendChild(topRow);
-					topRow.className = (i > 0) ? 'extra_jobs' : '';
-					topRow.style = 'vertical-align: top;';
-					topRow.appendChild(topLeft);
-					topLeft.className = 'descriptor';
-					topLeft.style = item_padding;
-					topLeft.appendChild(jobLink);
-					jobLink.href = data[i].link;
-					jobLink.target = '_blank';
-					jobLink.appendChild(company);
-					topRow.appendChild(topRight);
-					topRight.style = item_padding;
-					topRight.appendChild(title);
-					resumeSection.appendChild(bottomRow);
-					bottomRow.className = (i > 0) ? 'extra_jobs' : '';
-					bottomRow.style = 'vertical-align : top;';
-					bottomRow.appendChild(bottomLeft);
-					bottomLeft.className = 'descriptor detail';
-					bottomLeft.style = item_padding;
-					bottomLeft.appendChild(period);
-					bottomRow.appendChild(bottomRight);
-					bottomRight.className = 'detail';
-					bottomRight.style = item_padding;
-					bottomRight.appendChild(description);
+					var job = new Job(data[i].company, data[i].title, data[i].period, data[i].description,
+						data[i].link);
+					job.load(i);
 				}
-			}
+			};
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
 				var extras = document.querySelectorAll(classes.join());
