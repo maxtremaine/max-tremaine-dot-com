@@ -74,6 +74,9 @@
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
 		<script>
+			/**
+			 * Global short forms for document methods.
+			 */
 			var page = document;
 			page.get = page.getElementById;
 			page.create = page.createElement;
@@ -98,7 +101,7 @@
 					}
 				}
 				xhr.send();
-			}
+			};
 			/**
 			 * @class
 			 * @param {string} title
@@ -112,7 +115,7 @@
 			}
 			Article.section = page.get('article_table');
 			/**
-			 * This loop creates article items in the following format:
+			 * This method creates article items in the following format:
 			 * <tr class=[class] style="vertical-align: top;">
 			 *     <td style="padding: 2vh;">
 			 *          <a href=[link] target="_blank">[title]</a>
