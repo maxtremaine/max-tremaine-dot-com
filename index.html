@@ -243,6 +243,14 @@
 					if(loadedPage.incrementJ) j++;
 				}
 			};
+			/**
+			 * @class
+			 * @param {string} company
+			 * @param {string} title
+			 * @param {string} period
+			 * @param {string} description
+			 * @param {string} link
+			 */
 			function Job(company, title, period, description, link) {
 				this.company = company;
 				this.title = title;
@@ -252,7 +260,7 @@
 			}
 			Job.section = page.get('resume_table');
 			/**
-			 * This loop creates resume items in the following format:
+			 * This method creates resume items in the Job section in the following format:
 			 * <tr class=[class] style="vertical-align: top;">
 			 *     <td class="descriptor" style="padding: 2vh;">
 			 *         <a href=[link] target="_blank">[company]</a>
