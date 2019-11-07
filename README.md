@@ -12,7 +12,7 @@ To-Dos
 ------
 
 - [ ] Make the website more browser-friendly.
-- [ ] |- Replace fetch with XMLHTTPRequest.
+- [x] |- Replace fetch with XMLHTTPRequest.
 - [ ] |- Replace const and let with var (and check for issues).
 - [ ] Clean up code.
 - [ ] |- Add documentation to functions.

@@ -74,18 +74,18 @@
 			<h4 style="font-size:2vh;text-align:right;">Thanks for stopping by.</h4>
 		</footer>
 		<script>
-			const page = document;
+			var page = document;
 			page.get = page.getElementById;
 			page.create = page.createElement;
 			page.text = page.createTextNode;
 			/**
 			 * Coordinates site construction from data.
 			 */
-			window.onload = function() {
+			window.onload = function getPageData() {
 				var xhr = new XMLHttpRequest();
 				xhr.open('GET', 'max_tremaine_dot_com.json', true);
 				xhr.responseText = 'text';
-				xhr.onload = function() {
+				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com;
 						page.get('articles_from_data').style.display = 'block';
@@ -120,7 +120,7 @@
 			 *     <td style="padding: 2vh;">[description]</td>
 			 * </tr>
 			 */
-			Article.prototype.load = function(i) {
+			Article.prototype.load = function LoadArticle(i) {
 				var articleRow = page.create('tr');
 				var leftData = page.create('td');
 				var articleLink = page.create('a');
@@ -169,13 +169,13 @@
 			}
 			Book.section = page.get('favourite_books_list');
 			/**
-			 * This loop creates book items in the following format:
+			 * This method creates book items in the following format:
 			 * <li class=[class] style="list-style-position:inside;">
 			 *     <a href=[link] target="_blank">[title]</a>
 			 *     [author]
 			 * </li>
 			 */
-			Book.prototype.load = function(i) {
+			Book.prototype.load = function LoadBook(i) {
 				var link = 'book.html?title=' + this.key;
 				var bookItem = page.create('li');
 				var bookLink = page.create('a');
@@ -188,7 +188,7 @@
 				bookLink.appendChild(title);
 				bookItem.appendChild(author);
 			};
-			Book.createBatch = function(data) {
+			Book.createBatch = function createBatch(data) {
 				data = data.toSortedArray('rank');
 				for(var i = 0; i < data.length; i++) {
 					var book = new Book(data[i].key, data[i].title, data[i].author, data[i].link,
@@ -196,6 +196,12 @@
 					book.load(i);
 				}
 			};
+			/**
+			 * @class
+			 * @param {string} quote
+			 * @param {string} author
+			 * @param {boolean} public
+			 */
 			function Quote(quote, author, public) {
 				this.quote = quote;
 				this.author = author;
@@ -209,7 +215,7 @@
 			 *     <p style="text-align:right;">[author]</p>
 			 * </li>
 			 */
-			Quote.prototype.load = function(i, j) {
+			Quote.prototype.load = function loadQuote(i, j) {
 				var output = {};
 				output.incrementJ = false;
 				if(this.public) {
@@ -230,7 +236,7 @@
 				}
 				return output;
 			};
-			Quote.createBatch = function(data) {
+			Quote.createBatch = function createBatch(data) {
 				for(var i = 0, j = 0; i < data.length; i++) {
 					var quote = new Quote(data[i].quote, data[i].author, data[i].public);
 					var loadedPage = quote.load(i, j);
