@@ -75,13 +75,6 @@
 		</footer>
 		<script>
 			/**
-			 * Global short forms for document methods.
-			 */
-			var page = document;
-			page.get = page.getElementById;
-			page.create = page.createElement;
-			page.text = page.createTextNode;
-			/**
 			 * Coordinates site construction from data.
 			 */
 			window.onload = function getPageData() {
@@ -91,7 +84,7 @@
 				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com;
-						page.get('articles_from_data').style.display = 'block';
+						document.getElementById('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
 						Book.createBatch(data.favourite_books);
 						Quote.createBatch(data.favourite_quotes);
@@ -113,7 +106,7 @@
 				this.description = description;
 				this.link = link;
 			}
-			Article.section = page.get('article_table');
+			Article.section = document.getElementById('article_table');
 			/**
 			 * This method creates article items in the following format:
 			 * <tr class=[class] style="vertical-align: top;">
@@ -122,14 +115,15 @@
 			 *     </td>
 			 *     <td style="padding: 2vh;">[description]</td>
 			 * </tr>
+			 * @param {number} i
 			 */
 			Article.prototype.load = function LoadArticle(i) {
-				var articleRow = page.create('tr');
-				var leftData = page.create('td');
-				var articleLink = page.create('a');
-				var articleTitle = page.text(this.title);
-				var rightData = page.create('td');
-				var articleDescription = page.text(this.description);
+				var articleRow = document.createElement('tr');
+				var leftData = document.createElement('td');
+				var articleLink = document.createElement('a');
+				var articleTitle = document.createTextNode(this.title);
+				var rightData = document.createElement('td');
+				var articleDescription = document.createTextNode(this.description);
 				var articlePadding = 'padding: 2vh;';
 				Article.section.appendChild(articleRow);
 				articleRow.className = i > 1 ? 'extra_articles' : '';
@@ -170,20 +164,21 @@
 				this.favouriteQuote = favouriteQuote;
 				this.rank = rank;
 			}
-			Book.section = page.get('favourite_books_list');
+			Book.section = document.getElementById('favourite_books_list');
 			/**
 			 * This method creates book items in the following format:
 			 * <li class=[class] style="list-style-position:inside;">
 			 *     <a href=[link] target="_blank">[title]</a>
 			 *     [author]
 			 * </li>
+			 * @param {number} i
 			 */
 			Book.prototype.load = function LoadBook(i) {
 				var link = 'book.html?title=' + this.key;
-				var bookItem = page.create('li');
-				var bookLink = page.create('a');
-				var title = page.text(this.title);
-				var author = page.text(' by ' + this.author);
+				var bookItem = document.createElement('li');
+				var bookLink = document.createElement('a');
+				var title = document.createTextNode(this.title);
+				var author = document.createTextNode(' by ' + this.author);
 				Book.section.appendChild(bookItem);
 				bookItem.className = i > 2 ? 'extra_books' : '';
 				bookItem.appendChild(bookLink);
@@ -191,11 +186,24 @@
 				bookLink.appendChild(title);
 				bookItem.appendChild(author);
 			};
+			/**
+			 * Creates a batch of books.
+			 * @param {any} data
+			 */
 			Book.createBatch = function createBatch(data) {
-				data = data.toSortedArray('rank');
-				for(var i = 0; i < data.length; i++) {
-					var book = new Book(data[i].key, data[i].title, data[i].author, data[i].link,
-						data[i].description, data[i].favouriteQuote, data[i].rank);
+				var dataEntries = Object.entries(data);
+				var dataArray = [];
+				for(var i = 0; i < dataEntries.length; i++) {
+					var book = dataEntries[i][1];
+					book.key = dataEntries[i][0];
+					dataArray.push(book);
+				}
+				dataArray.sort(function(a, b) {
+					return a.rank - b.rank;
+				});
+				for(var i = 0; i < dataArray.length; i++) {
+					var book = new Book(dataArray[i].key, dataArray[i].title, dataArray[i].author, dataArray[i].link,
+					dataArray[i].description, dataArray[i].favouriteQuote, dataArray[i].rank);
 					book.load(i);
 				}
 			};
@@ -210,23 +218,25 @@
 				this.author = author;
 				this.public = public;
 			}
-			Quote.section = page.get('favourite_quotes_list');
+			Quote.section = document.getElementById('favourite_quotes_list');
 			/**
 			 * This loop creates quote items in the following format:
 			 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
 			 *     <q>[quote]</q>
 			 *     <p style="text-align:right;">[author]</p>
 			 * </li>
+			 * @param {number} i
+			 * @param {number} j
 			 */
 			Quote.prototype.load = function loadQuote(i, j) {
 				var output = {};
 				output.incrementJ = false;
 				if(this.public) {
-					var quoteItem = page.create('li');
-					var quoteElement = page.create('q');
-					var quote = page.text(this.quote);
-					var authorElement = page.create('p');
-					var author = page.text('- ' + this.author);
+					var quoteItem = document.createElement('li');
+					var quoteElement = document.createElement('q');
+					var quote = document.createTextNode(this.quote);
+					var authorElement = document.createElement('p');
+					var author = document.createTextNode('- ' + this.author);
 					Quote.section.appendChild(quoteItem);
 					quoteItem.className = j > 1 ? 'extra_quotes' : '';
 					quoteItem.style = 'list-style-type:none;margin:2vh 1vh;';
@@ -239,6 +249,9 @@
 				}
 				return output;
 			};
+			/**
+			 * @param {any} data
+			 */
 			Quote.createBatch = function createBatch(data) {
 				for(var i = 0, j = 0; i < data.length; i++) {
 					var quote = new Quote(data[i].quote, data[i].author, data[i].public);
@@ -261,7 +274,7 @@
 				this.description = description;
 				this.link = link;
 			}
-			Job.section = page.get('resume_table');
+			Job.section = document.getElementById('resume_table');
 			/**
 			 * This method creates resume items in the Job section in the following format:
 			 * <tr class=[class] style="vertical-align: top;">
@@ -276,17 +289,17 @@
 			 * </tr>
 			 */
 			Job.prototype.load = function(i) {
-				var topRow = page.create('tr');
-				var topLeft = page.create('td');
-				var jobLink = page.create('a');
-				var company = page.text(this.company);
-				var topRight = page.create('td');
-				var title = page.text(this.title);
-				var bottomRow = page.create('tr');
-				var bottomLeft = page.create('td');
-				var period = page.text(this.period);
-				var bottomRight = page.create('td');
-				var description = page.text(this.description);
+				var topRow = document.createElement('tr');
+				var topLeft = document.createElement('td');
+				var jobLink = document.createElement('a');
+				var company = document.createTextNode(this.company);
+				var topRight = document.createElement('td');
+				var title = document.createTextNode(this.title);
+				var bottomRow = document.createElement('tr');
+				var bottomLeft = document.createElement('td');
+				var period = document.createTextNode(this.period);
+				var bottomRight = document.createElement('td');
+				var description = document.createTextNode(this.description);
 				var itemPadding = 'padding: 2vh;';
 				Job.section.appendChild(topRow);
 				topRow.className = i > 0 ? 'extra_jobs' : '';
@@ -334,39 +347,13 @@
 				console.log(['Last Updated: ', data.last_updated].join(''));
 				console.log(data.welcome_message);
 			}
-			Object.prototype.toSortedArray = function(sortKey) {
-				/**
-				 * Turn an object into a sorted array.
-				 * Nested objects can be sorted by a key (sortKey).
-				 */
-				var out;
-				out = Object.entries(this);
-				out = out.map(function(x) {
-					var obj;
-					obj = x[1];
-					obj['key'] = x[0];
-					return obj;
-				});
-				if(typeof out[0][sortKey] === 'number') {
-					// If the sortKey is numerical order accordingly.
-					out.sort(function(a, b) {return a[sortKey] - b[sortKey]});
-				} else {
-					// If the sortKey is not numerical order alphabetically.
-					out.sort(function(a, b) {
-						let x = a[sortKey].toLowerCase();
-						let y = b[sortKey].toLowerCase();
-						return (x > y) ? 1 : -1;
-					});
-				}
-				return out;
-			}
 			/**
 			 * Extend or reduce a list.
 			 */
 			function listButton(extraClass, buttonToHide, buttonToShow, extraClassDisplayValue) {
 				if(extraClassDisplayValue === undefined) {extraClassDisplayValue = 'none';}
-				page.get(buttonToHide).style.display = 'none';
-				page.get(buttonToShow).style.display = 'block';
+				document.getElementById(buttonToHide).style.display = 'none';
+				document.getElementById(buttonToShow).style.display = 'block';
 				var extraClassElements = document.getElementsByClassName(extraClass);
 				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
 			}
