@@ -18,3 +18,4 @@ To-Dos
 - [ ] |- Add documentation to functions.
 - [ ] |- Change underscores to dashes and camelCase.
 - [ ] Add keys for database items.
+- [ ] Add data types.
