@@ -26,6 +26,7 @@
           "quote": "string",
           "author": "string",
           "public": "boolean",
+          "length": "number",
           "key": "string"
         },
         "resume": {
@@ -161,86 +162,99 @@
           "key": "confidenceGame"
         }
       },
-      "favouriteQuotes": [
-        {
+      "favouriteQuotes": {
+        "onesWorth": {
           "quote": "One's worth is their price.",
           "author": "Thomas Hobbes",
           "public": true,
+          "length": 27,
           "key": "onesWorth"
         },
-        {
+        "industryIsTheEnemy": {
           "quote": "Industry is the enemy of melancholy",
           "author": "William F. Buckley",
           "public": true,
+          "length": 35,
           "key": "industryIsTheEnemy"
         },
-        {
+        "dontTakeRefuge": {
           "quote": "Don't take refuge in the false security of consensus.",
           "author": "Christopher Hitchens",
           "public": true,
+          "length": 53,
           "key": "dontTakeRefuge"
         },
-        {
+        "dataIsTheSword": {
           "quote": "Data is the sword of the 21st century, those who wield it well, the Samurai.",
           "author": "Jonathan Rosenberg",
           "public": false,
+          "length": 76,
           "key": "dataIsTheSword"
         },
-        {
+        "timeMakesFools": {
           "quote": "Time makes fools of us all. Our only comfort is that greater shall come after us.",
           "author": "Eric Temple Bell",
           "public": false,
+          "length": 81,
           "key": "timeMakesFools"
         },
-        {
+        "concentratedPower": {
           "quote": "Concentrated power is not rendered harmless by the good intentions of those who create it.",
           "author": "Milton Friedman",
           "public": true,
+          "length": 90,
           "key": "concentratedPower"
         },
-        {
+        "inMathematicsTheArt": {
           "quote": "In mathematics the art of proposing a question must be held of higher value than solving it.",
           "author": "Georg Cantor",
           "public": false,
+          "length": 92,
           "key": "inMathematicsTheArt"
         },
-        {
+        "thereIsNoDignity": {
           "quote": "There is no dignity quite so impressive, and no one independence quite so important, as living within your means.",
           "author": "Calvin Coolidge",
           "public": false,
+          "length": 113,
           "key": "thereIsNoDignity"
         },
-        {
+        "asFarAsTheLawsOfMathematics": {
           "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
           "author": "Albert Einstein",
           "public": false,
+          "length": 135,
           "key": "asFarAsTheLawsOfMathematics"
         },
-        {
+        "theFirstLessonOfEconomics": {
           "quote": "The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
           "author": "Thomas Sowell",
           "public": true,
+          "length": 192,
           "key": "theFirstLessonOfEconomics"
         },
-        {
+        "theDonQuixoteOfTheTwentyFirstCentury": {
           "quote": "The Don Quixote of the twenty-first century will not be a knight-errant struggling to revive the glories of feudalism but a bureaucrat in a brown suit, a tax collector yearning for a citizen to audit.",
           "author": "James Dale Davidson & William Rees Mogg",
           "public": true,
+          "length": 200,
           "key": "theDonQuixoteOfTheTwentyFirstCentury"
         },
-        {
+        "ifYouThinkOfTheWorld": {
           "quote": "[If] you think of the world as consisting of lottery tickets, you have set yourself up to lose. ... Even though there may be things that involve irreducible elements of luck, it's not an intellectual truth about the world.",
           "author": "Peter Thiel",
           "public": true,
+          "length": 222,
           "key": "ifYouThinkOfTheWorld"
         },
-        {
+        "todayWeExaminePeople": {
           "quote": "Today, we examine people under an electron microscope if they're running for dogcatcher, and I think this is the single biggest reason that more talented people don't run for public office... the extreme transparency in some ways naturally leads in a toxic direction, away from policy.",
           "author": "Peter Thiel",
           "public": false,
+          "length": 285,
           "key": "todayWeExaminePeople"
         }
-      ],
+      },
       "resume": [
         {
           "company": "Visa Run (Trade Name: Sherpa)",

@@ -249,6 +249,7 @@
 			 * @param {any} data
 			 */
 			Quote.createBatch = function createBatch(data) {
+				data = data.toSortedList('length')
 				for(var i = 0, j = 0; i < data.length; i++) {
 					var quote = new Quote(data[i].quote, data[i].author, data[i].public);
 					var loadedPage = quote.load(i, j);
