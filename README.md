@@ -19,6 +19,6 @@ To-Dos
 - [ ] |- Change underscores to dashes and camelCase.
 - [ ] |- Switch over to sorted arrays from objects (quotes by length).
 - [ ] Clean up database.
-- [ ] |- Add keys for database items.
+- [x] |- Add keys for database items.
 - [x] |- Add data types.
 - [ ] |- Change database keys to camelCase.
