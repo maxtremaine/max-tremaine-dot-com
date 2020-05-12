@@ -17,3 +17,4 @@ To-Dos
 - [ ] Clean up code.
 - [ ] |- Add documentation to functions.
 - [ ] |- Change underscores to dashes and camelCase.
+- [ ] Add keys for database items.
