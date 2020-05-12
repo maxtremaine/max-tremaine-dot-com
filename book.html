@@ -35,6 +35,7 @@
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks;
+						if(data[title] === undefined) document.location = '/'; // Go away bad requests.
 						populatePage(data[title]);
 					}
 				}
