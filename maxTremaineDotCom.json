@@ -3,8 +3,8 @@
     "meta": {
       "author": "Max Tremaine",
       "contact": "me@maxtremaine.com",
-      "last_updated": "September 16, 2017",
-      "welcome_message": "\nHi Stranger!\n\nWelcome to the console of my website. Take a look at my XMLHttpRequest and data structure. Pretty sweet right? You can find all of the code that I used to put this together in the source, and all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max",
+      "lastUpdated": "September 16, 2017",
+      "welcomeMessage": "\nHi Stranger!\n\nWelcome to the console of my website. Take a look at my XMLHttpRequest and data structure. Pretty sweet right? You can find all of the code that I used to put this together in the source, and all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max",
       "types": {
         "article": {
           "title": "string",
