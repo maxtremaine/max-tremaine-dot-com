@@ -6,234 +6,236 @@
       "last_updated": "September 16, 2017",
       "welcome_message": "\nHi Stranger!\n\nWelcome to the console of my website. Take a look at my XMLHttpRequest and data structure. Pretty sweet right? You can find all of the code that I used to put this together in the source, and all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max"
     },
-    "articles": [
-      {
-        "title": "The Worst Part of Travel",
-        "description": "Some horror stories about visa applications from Sherpa's customer discovery interviews.",
-        "link": "https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p"
+    "data": {
+      "articles": [
+        {
+          "title": "The Worst Part of Travel",
+          "description": "Some horror stories about visa applications from Sherpa's customer discovery interviews.",
+          "link": "https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p"
+        },
+        {
+          "title": "Nobody Likes Travel Visas",
+          "description": "An overview of some of my findings researching travel visa requirements, and people's experiences applying for travel visas.",
+          "link": "https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py"
+        },
+        {
+          "title": "Your Phone Will Replace Your Passport",
+          "description": "Some of my thoughts on the changing travel documentation landscape.",
+          "link": "https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5"
+        },
+        {
+          "title": "Laws on Your Phone",
+          "description": "Some of my thoughts on the application of mobile technologies to the consumption of legal and regulatory data.",
+          "link": "https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0"
+        }
+      ],
+      "favourite_books": {
+        "the_sovereign_individual": {
+          "title": "The Sovereign Individual",
+          "author": "James Dale Davidson & William Rees-Mogg",
+          "link": "https://www.goodreads.com/book/show/82256.The_Sovereign_Individual",
+          "description": "A truly forward thinking book about how the internet changes the balance of power between governments and individuals. This book is obsessively well sourced, and can serve as the launchpad for dozens of reading binges. The ultimate success of the book can be measured in the number of specific predictions that have come to fruition.",
+          "favourite_quote": "Just as the attempts to preserve the power of knights in armor were doomed to fail in the face of gunpowder weapons, so the modern notions of nationalism and citizenship are doomed to be short-circuited by microtechnology.",
+          "rank": 1
+        },
+        "zero_to_one": {
+          "title": "Zero to One",
+          "author": "Peter Thiel",
+          "link": "https://www.goodreads.com/book/show/18050143-zero-to-one",
+          "description": "Thiel's unique take on the business book. Instead of truths about business or alegorical tales, he focuses on questions and systems that creative people have to consider when trying to create something new. This book really made me stop and think about my life and my business.",
+          "favourite_quote": "All failed companies are the same: they failed to escape competition.",
+          "rank": 2
+        },
+        "the_innovators_dilemma": {
+          "title": "The Innovator's Dilemma",
+          "author": "Clayton Christiensen",
+          "link": "https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma",
+          "description": "One of the most thought provoking books I've ever read. Disruptive Innovation is a framework that is much more selective than it is typically used, and I have had a lot of fun trying to apply it to case studies that I see. Great read.",
+          "favourite_quote": "The techniques that worked so extraordinarily well when applied to sustaining technologies, however, clearly failed badly when applied to markets or applications that did not yet exist.",
+          "rank": 3
+        },
+        "free_to_choose": {
+          "title": "Free to Choose",
+          "author": "Milton Friedman",
+          "link": "https://www.goodreads.com/book/show/97820.Free_to_Choose",
+          "description": "This book had a fundamental effect on me when I was forming my political opinions. The practical lense to politics is generally underexplored, and this book makes a great case for following outcomes over intentions.",
+          "favourite_quote": "The combination of economic and political power in the same hands is a sure recipe for tyranny.",
+          "rank": 4
+        },
+        "options_volatility_and_pricing": {
+          "title": "Option Volatility and Pricing",
+          "author": "Sheldon Natenberg",
+          "link": "http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing",
+          "description": "The options trading bible. Absolutely the best book if you want to understand how options are priced and valued.",
+          "favourite_quote": "You could say that implied volatility is the marketplace's own forecast of future volatility. It's the consensus among all traders in the marketplace about what they think the future volatility is going to be based on the prices they're currently bidding and asking for the options being traded.",
+          "rank": 5
+        },
+        "sex_trafficking": {
+          "title": "Sex Trafficking",
+          "author": "Siddharth Kara",
+          "link": "https://www.goodreads.com/book/show/3398414-sex-trafficking",
+          "description": "An eye opening book about the darkest side of humanity.",
+          "favourite_quote": "The sequence is undeniable; desire leads to suffering, suffering leads to anger, anger leads to violence, and violence destroys the world.",
+          "rank": 6
+        },
+        "the_ascent_of_money": {
+          "title": "The Ascent of Money",
+          "author": "Niall Ferguson",
+          "link": "https://www.goodreads.com/book/show/2714607-the-ascent-of-money",
+          "description": "It's impossible to understand markets without understanding finance, and it's impossible to understand finance without understanding money. This is a great book on money.",
+          "favourite_quote": "There's really no such thing as 'the future', singular. There are only multiple, unforeseeable futures, which will never lose their capacity to take us by surprise.",
+          "rank": 7
+        },
+        "dead_aid": {
+          "title": "Dead Aid",
+          "author": "Dambisa Moyo",
+          "link": "https://www.goodreads.com/book/show/6184317-dead-aid",
+          "description": "A book that rocked the way I thought about foreign aid. Very easy read, and highly informative.",
+          "favourite_quote": "Western donors have an aid industry to feed [Western] farmers.",
+          "rank": 8
+        },
+        "this_time_is_different": {
+          "title": "This Time is Different",
+          "author": "Carmen Reinhard & Kenneth Rogoff",
+          "link": "https://www.goodreads.com/book/show/6372440-this-time-is-different",
+          "description": "Every unprecidented market bust actually follows highly similar features. Really good book to help you understand what to look for in a bubble.",
+          "favourite_quote": "More money has been lost because of four words than at the point of a gun. Those words are \"This time is different.\"",
+          "rank": 9
+        },
+        "confidence_game": {
+          "title": "Confidence Game",
+          "author": "Christine Richard",
+          "link": "https://www.goodreads.com/book/show/8103503-confidence-game",
+          "description": "An amazing look into the regulatory failures that led to the real estate bubble in the United States.",
+          "favourite_quote": "He didn’t ask people in the room what they thought about the emperor’s new clothes or if they wondered whether the emperor might be a bit cold… He just pointed his finger and said “Naked!”",
+          "rank": 10
+        }
       },
-      {
-        "title": "Nobody Likes Travel Visas",
-        "description": "An overview of some of my findings researching travel visa requirements, and people's experiences applying for travel visas.",
-        "link": "https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py"
-      },
-      {
-        "title": "Your Phone Will Replace Your Passport",
-        "description": "Some of my thoughts on the changing travel documentation landscape.",
-        "link": "https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5"
-      },
-      {
-        "title": "Laws on Your Phone",
-        "description": "Some of my thoughts on the application of mobile technologies to the consumption of legal and regulatory data.",
-        "link": "https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0"
-      }
-    ],
-    "favourite_books": {
-      "the_sovereign_individual": {
-        "title": "The Sovereign Individual",
-        "author": "James Dale Davidson & William Rees-Mogg",
-        "link": "https://www.goodreads.com/book/show/82256.The_Sovereign_Individual",
-        "description": "A truly forward thinking book about how the internet changes the balance of power between governments and individuals. This book is obsessively well sourced, and can serve as the launchpad for dozens of reading binges. The ultimate success of the book can be measured in the number of specific predictions that have come to fruition.",
-        "favourite_quote": "Just as the attempts to preserve the power of knights in armor were doomed to fail in the face of gunpowder weapons, so the modern notions of nationalism and citizenship are doomed to be short-circuited by microtechnology.",
-        "rank": 1
-      },
-      "zero_to_one": {
-        "title": "Zero to One",
-        "author": "Peter Thiel",
-        "link": "https://www.goodreads.com/book/show/18050143-zero-to-one",
-        "description": "Thiel's unique take on the business book. Instead of truths about business or alegorical tales, he focuses on questions and systems that creative people have to consider when trying to create something new. This book really made me stop and think about my life and my business.",
-        "favourite_quote": "All failed companies are the same: they failed to escape competition.",
-        "rank": 2
-      },
-      "the_innovators_dilemma": {
-        "title": "The Innovator's Dilemma",
-        "author": "Clayton Christiensen",
-        "link": "https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma",
-        "description": "One of the most thought provoking books I've ever read. Disruptive Innovation is a framework that is much more selective than it is typically used, and I have had a lot of fun trying to apply it to case studies that I see. Great read.",
-        "favourite_quote": "The techniques that worked so extraordinarily well when applied to sustaining technologies, however, clearly failed badly when applied to markets or applications that did not yet exist.",
-        "rank": 3
-      },
-      "free_to_choose": {
-        "title": "Free to Choose",
-        "author": "Milton Friedman",
-        "link": "https://www.goodreads.com/book/show/97820.Free_to_Choose",
-        "description": "This book had a fundamental effect on me when I was forming my political opinions. The practical lense to politics is generally underexplored, and this book makes a great case for following outcomes over intentions.",
-        "favourite_quote": "The combination of economic and political power in the same hands is a sure recipe for tyranny.",
-        "rank": 4
-      },
-      "options_volatility_and_pricing": {
-        "title": "Option Volatility and Pricing",
-        "author": "Sheldon Natenberg",
-        "link": "http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing",
-        "description": "The options trading bible. Absolutely the best book if you want to understand how options are priced and valued.",
-        "favourite_quote": "You could say that implied volatility is the marketplace's own forecast of future volatility. It's the consensus among all traders in the marketplace about what they think the future volatility is going to be based on the prices they're currently bidding and asking for the options being traded.",
-        "rank": 5
-      },
-      "sex_trafficking": {
-        "title": "Sex Trafficking",
-        "author": "Siddharth Kara",
-        "link": "https://www.goodreads.com/book/show/3398414-sex-trafficking",
-        "description": "An eye opening book about the darkest side of humanity.",
-        "favourite_quote": "The sequence is undeniable; desire leads to suffering, suffering leads to anger, anger leads to violence, and violence destroys the world.",
-        "rank": 6
-      },
-      "the_ascent_of_money": {
-        "title": "The Ascent of Money",
-        "author": "Niall Ferguson",
-        "link": "https://www.goodreads.com/book/show/2714607-the-ascent-of-money",
-        "description": "It's impossible to understand markets without understanding finance, and it's impossible to understand finance without understanding money. This is a great book on money.",
-        "favourite_quote": "There's really no such thing as 'the future', singular. There are only multiple, unforeseeable futures, which will never lose their capacity to take us by surprise.",
-        "rank": 7
-      },
-      "dead_aid": {
-        "title": "Dead Aid",
-        "author": "Dambisa Moyo",
-        "link": "https://www.goodreads.com/book/show/6184317-dead-aid",
-        "description": "A book that rocked the way I thought about foreign aid. Very easy read, and highly informative.",
-        "favourite_quote": "Western donors have an aid industry to feed [Western] farmers.",
-        "rank": 8
-      },
-      "this_time_is_different": {
-        "title": "This Time is Different",
-        "author": "Carmen Reinhard & Kenneth Rogoff",
-        "link": "https://www.goodreads.com/book/show/6372440-this-time-is-different",
-        "description": "Every unprecidented market bust actually follows highly similar features. Really good book to help you understand what to look for in a bubble.",
-        "favourite_quote": "More money has been lost because of four words than at the point of a gun. Those words are \"This time is different.\"",
-        "rank": 9
-      },
-      "confidence_game": {
-        "title": "Confidence Game",
-        "author": "Christine Richard",
-        "link": "https://www.goodreads.com/book/show/8103503-confidence-game",
-        "description": "An amazing look into the regulatory failures that led to the real estate bubble in the United States.",
-        "favourite_quote": "He didn’t ask people in the room what they thought about the emperor’s new clothes or if they wondered whether the emperor might be a bit cold… He just pointed his finger and said “Naked!”",
-        "rank": 10
-      }
-    },
-    "favourite_quotes": [
-      {
-        "quote": "One's worth is their price.",
-        "author": "Thomas Hobbes",
-        "public": true
-      },
-      {
-        "quote": "Industry is the enemy of melancholy",
-        "author": "William F. Buckley",
-        "public": true
-      },
-      {
-        "quote": "Don't take refuge in the false security of consensus.",
-        "author": "Christopher Hitchens",
-        "public": true
-      },
-      {
-        "quote": "Data is the sword of the 21st century, those who wield it well, the Samurai.",
-        "author": "Jonathan Rosenberg",
-        "public": false
-      },
-      {
-        "quote": "Time makes fools of us all. Our only comfort is that greater shall come after us.",
-        "author": "Eric Temple Bell",
-        "public": false
-      },
-      {
-        "quote": "Concentrated power is not rendered harmless by the good intentions of those who create it.",
-        "author": "Milton Friedman",
-        "public": true
-      },
-      {
-        "quote": "In mathematics the art of proposing a question must be held of higher value than solving it.",
-        "author": "Georg Cantor",
-        "public": false
-      },
-      {
-        "quote": "There is no dignity quite so impressive, and no one independence quite so important, as living within your means.",
-        "author": "Calvin Coolidge",
-        "public": false
-      },
-      {
-        "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
-        "author": "Albert Einstein",
-        "public": false
-      },
-      {
-        "quote": "The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
-        "author": "Thomas Sowell",
-        "public": true
-      },
-      {
-        "quote": "The Don Quixote of the twenty-first century will not be a knight-errant struggling to revive the glories of feudalism but a bureaucrat in a brown suit, a tax collector yearning for a citizen to audit.",
-        "author": "James Dale Davidson & William Rees Mogg",
-        "public": true
-      },
-      {
-        "quote": "[If] you think of the world as consisting of lottery tickets, you have set yourself up to lose. ... Even though there may be things that involve irreducible elements of luck, it's not an intellectual truth about the world.",
-        "author": "Peter Thiel",
-        "public": true
-      },
-      {
-        "quote": "Today, we examine people under an electron microscope if they're running for dogcatcher, and I think this is the single biggest reason that more talented people don't run for public office... the extreme transparency in some ways naturally leads in a toxic direction, away from policy.",
-        "author": "Peter Thiel",
-        "public": false
-      }
-    ],
-    "resume": [
-      {
-        "company": "Visa Run (Trade Name: Sherpa)",
-        "title": "Co-Founder & CEO",
-        "period": "Dec. 2015 to present",
-        "description": "Business leader of a small team with an innovative product. Established relationships with leaders in the Travel Visa Services market. Developed lean marketing and sales processes.",
-        "link": "http://www.joinsherpa.com"
-      },
-      {
-        "company": "The Revenue U",
-        "title": "Market Validation & Lean Startup Consultant",
-        "period": "Sep. 2016 to present",
-        "description": "Facilitated the Market Validation Lab program. Designed course materials to establish Lean Startup methodologies for OCE-backed startups. Advised startup leadership teams in achieving market-ready products.",
-        "link": "http://therevenueu.com/"
-      },
-      {
-        "company": "Tier1CRM",
-        "title": "Information Security Analyst",
-        "period": "September 2014 to November 2015",
-        "description": "Established the information security policies and procedures. Coordinated tests of the information security procedures. Reported directly to the leadership team.",
-        "link": "http://www.tier1crm.com"
-      },
-      {
-        "company": "Hubspot",
-        "title": "Inbound Certification",
-        "period": "2016",
-        "description": "Gained a basic understanding of best practices and tools in Inbound Marketing.",
-        "link": "http://www.hubspot.com/"
-      },
-      {
-        "company": "Nielsen",
-        "title": "Market Research Analyst",
-        "period": "January 2013 to August 2014",
-        "description": "Won 'Commitment to Excellence (2013)' for assissting with analysis and insights for a white paper on Price Divergence. Led and contributed to research on the Canadian Retail/CPG market. Acted as first point of contact for Imperial Oil and Canadian Tire accounts.",
-        "link": "http://www.nielsen.com"
-      },
-      {
-        "company": "Canadian Securities Institute",
-        "title": "Canadian Securities Course",
-        "period": "2013",
-        "description": "Certified to sell Mutual Funds in Canada.",
-        "link": "http://www.csi.ca/"
-      },
-      {
-        "company": "Google",
-        "title": "Digital Analytics Fundamentals",
-        "period": "2013",
-        "description": "Trained to use Google's digital analytics tools.",
-        "link": "http://www.google.com/"
-      },
-      {
-        "company": "Wilfrid Laurier University",
-        "title": "Hons. BA Political Science & Psychology (Min. Economics)",
-        "period": "2008 to 2012",
-        "description": "Rigorous study in statistics and social research.",
-        "link": "https://www.wlu.ca/"
-      }
-    ]
+      "favourite_quotes": [
+        {
+          "quote": "One's worth is their price.",
+          "author": "Thomas Hobbes",
+          "public": true
+        },
+        {
+          "quote": "Industry is the enemy of melancholy",
+          "author": "William F. Buckley",
+          "public": true
+        },
+        {
+          "quote": "Don't take refuge in the false security of consensus.",
+          "author": "Christopher Hitchens",
+          "public": true
+        },
+        {
+          "quote": "Data is the sword of the 21st century, those who wield it well, the Samurai.",
+          "author": "Jonathan Rosenberg",
+          "public": false
+        },
+        {
+          "quote": "Time makes fools of us all. Our only comfort is that greater shall come after us.",
+          "author": "Eric Temple Bell",
+          "public": false
+        },
+        {
+          "quote": "Concentrated power is not rendered harmless by the good intentions of those who create it.",
+          "author": "Milton Friedman",
+          "public": true
+        },
+        {
+          "quote": "In mathematics the art of proposing a question must be held of higher value than solving it.",
+          "author": "Georg Cantor",
+          "public": false
+        },
+        {
+          "quote": "There is no dignity quite so impressive, and no one independence quite so important, as living within your means.",
+          "author": "Calvin Coolidge",
+          "public": false
+        },
+        {
+          "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
+          "author": "Albert Einstein",
+          "public": false
+        },
+        {
+          "quote": "The first lesson of economics is scarcity: there is never enough of anything to fully satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
+          "author": "Thomas Sowell",
+          "public": true
+        },
+        {
+          "quote": "The Don Quixote of the twenty-first century will not be a knight-errant struggling to revive the glories of feudalism but a bureaucrat in a brown suit, a tax collector yearning for a citizen to audit.",
+          "author": "James Dale Davidson & William Rees Mogg",
+          "public": true
+        },
+        {
+          "quote": "[If] you think of the world as consisting of lottery tickets, you have set yourself up to lose. ... Even though there may be things that involve irreducible elements of luck, it's not an intellectual truth about the world.",
+          "author": "Peter Thiel",
+          "public": true
+        },
+        {
+          "quote": "Today, we examine people under an electron microscope if they're running for dogcatcher, and I think this is the single biggest reason that more talented people don't run for public office... the extreme transparency in some ways naturally leads in a toxic direction, away from policy.",
+          "author": "Peter Thiel",
+          "public": false
+        }
+      ],
+      "resume": [
+        {
+          "company": "Visa Run (Trade Name: Sherpa)",
+          "title": "Co-Founder & CEO",
+          "period": "Dec. 2015 to present",
+          "description": "Business leader of a small team with an innovative product. Established relationships with leaders in the Travel Visa Services market. Developed lean marketing and sales processes.",
+          "link": "http://www.joinsherpa.com"
+        },
+        {
+          "company": "The Revenue U",
+          "title": "Market Validation & Lean Startup Consultant",
+          "period": "Sep. 2016 to present",
+          "description": "Facilitated the Market Validation Lab program. Designed course materials to establish Lean Startup methodologies for OCE-backed startups. Advised startup leadership teams in achieving market-ready products.",
+          "link": "http://therevenueu.com/"
+        },
+        {
+          "company": "Tier1CRM",
+          "title": "Information Security Analyst",
+          "period": "September 2014 to November 2015",
+          "description": "Established the information security policies and procedures. Coordinated tests of the information security procedures. Reported directly to the leadership team.",
+          "link": "http://www.tier1crm.com"
+        },
+        {
+          "company": "Hubspot",
+          "title": "Inbound Certification",
+          "period": "2016",
+          "description": "Gained a basic understanding of best practices and tools in Inbound Marketing.",
+          "link": "http://www.hubspot.com/"
+        },
+        {
+          "company": "Nielsen",
+          "title": "Market Research Analyst",
+          "period": "January 2013 to August 2014",
+          "description": "Won 'Commitment to Excellence (2013)' for assissting with analysis and insights for a white paper on Price Divergence. Led and contributed to research on the Canadian Retail/CPG market. Acted as first point of contact for Imperial Oil and Canadian Tire accounts.",
+          "link": "http://www.nielsen.com"
+        },
+        {
+          "company": "Canadian Securities Institute",
+          "title": "Canadian Securities Course",
+          "period": "2013",
+          "description": "Certified to sell Mutual Funds in Canada.",
+          "link": "http://www.csi.ca/"
+        },
+        {
+          "company": "Google",
+          "title": "Digital Analytics Fundamentals",
+          "period": "2013",
+          "description": "Trained to use Google's digital analytics tools.",
+          "link": "http://www.google.com/"
+        },
+        {
+          "company": "Wilfrid Laurier University",
+          "title": "Hons. BA Political Science & Psychology (Min. Economics)",
+          "period": "2008 to 2012",
+          "description": "Rigorous study in statistics and social research.",
+          "link": "https://www.wlu.ca/"
+        }
+      ]
+    }
   }
 }
