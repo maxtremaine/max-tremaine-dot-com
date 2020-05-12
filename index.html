@@ -334,10 +334,13 @@
 			 * @param {string} sortKey
 			 * @returns {any[]}
 			 */
-			Object.prototype.toSortedList = function(sortKey) {
+			Object.prototype.toSortedList = function(sortKey, reverse) {
+				if(reverse === undefined) reverse = false;
 				var data = Object.values(this);
 				data.sort(function(a, b) {
-					return a[sortKey] - b[sortKey];
+					var counter = a[sortKey] - b[sortKey]
+					if(reverse) counter = -counter
+					return counter;
 				});
 				return data;
 			};
