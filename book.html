@@ -30,11 +30,11 @@
 			window.onload = function() {
 				var title = (new URL(document.location)).searchParams.get('title');
 				var xhr = new XMLHttpRequest();
-				xhr.open('GET', 'max_tremaine_dot_com.json', true);
+				xhr.open('GET', 'maxTremaineDotCom.json', true);
 				xhr.responseType = 'text';
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com.favourite_books;
+						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks;
 						populatePage(data[title]);
 					}
 				}
