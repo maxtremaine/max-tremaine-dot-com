@@ -86,8 +86,8 @@
 						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data;
 						document.getElementById('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
-						Book.createBatch(data.favourite_books);
-						Quote.createBatch(data.favourite_quotes);
+						Book.createBatch(data.favouriteBooks);
+						Quote.createBatch(data.favouriteQuotes);
 						Job.createBatch(data.resume);
 						hideExtras();
 						logMeta(data.meta);
