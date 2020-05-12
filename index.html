@@ -335,10 +335,7 @@
 			 * @returns {any[]}
 			 */
 			Object.prototype.toSortedList = function(sortKey) {
-				var data = Object.entries(this);
-				data = data.map(function(datum) {
-					return datum[1];
-				});
+				var data = Object.values(this);
 				data.sort(function(a, b) {
 					return a[sortKey] - b[sortKey];
 				});
