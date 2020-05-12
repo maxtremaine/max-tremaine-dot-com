@@ -83,14 +83,16 @@
 				xhr.responseText = 'text';
 				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data;
+						var res = JSON.parse(xhr.responseText).maxTremaineDotCom;
+						var data = res.data;
+						var meta = res.meta;
 						document.getElementById('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
 						Book.createBatch(data.favouriteBooks);
 						Quote.createBatch(data.favouriteQuotes);
 						Job.createBatch(data.resume);
 						hideExtras();
-						logMeta(data.meta);
+						logMeta(meta);
 					}
 				}
 				xhr.send();
@@ -139,6 +141,9 @@
 				rightData.style = articlePadding;
 				rightData.appendChild(articleDescription);
 			};
+			/**
+			 * @param {any} data
+			 */
 			Article.createBatch = function(data) {
 				for(var i = 0; i < data.length; i++) {
 					var article = new Article(data[i].title, data[i].description, data[i].link);
@@ -146,7 +151,6 @@
 				}
 			};
 			/**
-			 * @class
 			 * @param {string} key
 			 * @param {string} title
 			 * @param {string} author
@@ -164,6 +168,9 @@
 				this.favouriteQuote = favouriteQuote;
 				this.rank = rank;
 			}
+			/**
+			 * @constant {object}
+			 */
 			Book.section = document.getElementById('favourite_books_list');
 			/**
 			 * This method creates book items in the following format:
@@ -208,7 +215,6 @@
 				}
 			};
 			/**
-			 * @class
 			 * @param {string} quote
 			 * @param {string} author
 			 * @param {boolean} public
@@ -260,7 +266,7 @@
 				}
 			};
 			/**
-			 * @class
+			 * @class Job - Record of work I've done.
 			 * @param {string} company
 			 * @param {string} title
 			 * @param {string} period
@@ -335,6 +341,7 @@
 			};
 			/**
 			 * @param {string} sortKey
+			 * @returns {any[]}
 			 */
 			Object.prototype.toSortedList = function(sortKey) {
 				var data = Object.entries(this);
