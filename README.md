@@ -20,4 +20,4 @@ To-Dos
 - [ ] Clean up database.
 - [ ] |- Add keys for database items.
 - [x] |- Add data types.
-- [ ] |- Change database keys
+- [ ] |- Change database keys to camelCase.
