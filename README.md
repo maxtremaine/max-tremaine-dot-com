@@ -22,3 +22,4 @@ To-Dos
 - [x] |- Add keys for database items.
 - [x] |- Add data types.
 - [ ] |- Change database keys to camelCase.
+- [ ] Add errors to book.html.
