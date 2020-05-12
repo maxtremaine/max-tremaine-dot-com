@@ -6,10 +6,31 @@
       "last_updated": "September 16, 2017",
       "welcome_message": "\nHi Stranger!\n\nWelcome to the console of my website. Take a look at my XMLHttpRequest and data structure. Pretty sweet right? You can find all of the code that I used to put this together in the source, and all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max",
       "data_types": {
-        "article": {},
-        "book": {},
-        "quote": {},
-        "resume": {}
+        "article": {
+          "title": "string",
+          "description": "string",
+          "link": "string"
+        },
+        "book": {
+          "title": "string",
+          "author": "string",
+          "link": "string",
+          "description": "string",
+          "favourite_quote": "string",
+          "rank": "number"
+        },
+        "quote": {
+          "quote": "string",
+          "author": "string",
+          "public": "boolean"
+        },
+        "resume": {
+          "company": "string",
+          "title": "string",
+          "period": "string",
+          "description": "string",
+          "link": "string"
+        }
       }
     },
     "data": {
