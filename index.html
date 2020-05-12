@@ -84,15 +84,13 @@
 				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						var res = JSON.parse(xhr.responseText).maxTremaineDotCom;
-						var data = res.data;
-						var meta = res.meta;
 						document.getElementById('articles_from_data').style.display = 'block';
-						Article.createBatch(data.articles);
-						Book.createBatch(data.favouriteBooks);
-						Quote.createBatch(data.favouriteQuotes);
-						Job.createBatch(data.resume);
+						Article.createBatch(res.data.articles);
+						Book.createBatch(res.data.favouriteBooks);
+						Quote.createBatch(res.data.favouriteQuotes);
+						Job.createBatch(res.data.resume);
 						hideExtras();
-						logMeta(meta);
+						logMeta(res.meta);
 					}
 				}
 				xhr.send();
@@ -145,6 +143,7 @@
 			 * @param {any} data
 			 */
 			Article.createBatch = function(data) {
+				data = data.toSortedList('order');
 				for(var i = 0; i < data.length; i++) {
 					var article = new Article(data[i].title, data[i].description, data[i].link);
 					article.load(i);
@@ -198,16 +197,7 @@
 			 * @param {any} data
 			 */
 			Book.createBatch = function createBatch(data) {
-				var dataEntries = Object.entries(data);
-				var dataArray = [];
-				for(var i = 0; i < dataEntries.length; i++) {
-					var book = dataEntries[i][1];
-					book.key = dataEntries[i][0];
-					dataArray.push(book);
-				}
-				dataArray.sort(function(a, b) {
-					return a.rank - b.rank;
-				});
+				var dataArray = data.toSortedList('rank');
 				for(var i = 0; i < dataArray.length; i++) {
 					var book = new Book(dataArray[i].key, dataArray[i].title, dataArray[i].author, dataArray[i].link,
 					dataArray[i].description, dataArray[i].favouriteQuote, dataArray[i].rank);
@@ -348,10 +338,10 @@
 				data = data.map(function(datum) {
 					return datum[1];
 				});
-				dataArray.sort(function(a, b) {
+				data.sort(function(a, b) {
 					return a[sortKey] - b[sortKey];
 				});
-				return dataArray;
+				return data;
 			};
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
