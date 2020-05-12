@@ -32,7 +32,8 @@
           "title": "string",
           "period": "string",
           "description": "string",
-          "link": "string"
+          "link": "string",
+          "key": "string"
         }
       }
     },
@@ -241,56 +242,64 @@
           "title": "Co-Founder & CEO",
           "period": "Dec. 2015 to present",
           "description": "Business leader of a small team with an innovative product. Established relationships with leaders in the Travel Visa Services market. Developed lean marketing and sales processes.",
-          "link": "http://www.joinsherpa.com"
+          "link": "http://www.joinsherpa.com",
+          "key": "visaRunInc"
         },
         {
           "company": "The Revenue U",
           "title": "Market Validation & Lean Startup Consultant",
           "period": "Sep. 2016 to present",
           "description": "Facilitated the Market Validation Lab program. Designed course materials to establish Lean Startup methodologies for OCE-backed startups. Advised startup leadership teams in achieving market-ready products.",
-          "link": "http://therevenueu.com/"
+          "link": "http://therevenueu.com/",
+          "key": "theRevenueU"
         },
         {
           "company": "Tier1CRM",
-          "title": "Information Security Analyst",
+          "title": "Multiple Roles",
           "period": "September 2014 to November 2015",
           "description": "Established the information security policies and procedures. Coordinated tests of the information security procedures. Reported directly to the leadership team.",
-          "link": "http://www.tier1crm.com"
+          "link": "http://www.tier1crm.com",
+          "key": "tier1CRMFullTime"
         },
         {
           "company": "Hubspot",
           "title": "Inbound Certification",
           "period": "2016",
           "description": "Gained a basic understanding of best practices and tools in Inbound Marketing.",
-          "link": "http://www.hubspot.com/"
+          "link": "http://www.hubspot.com/",
+          "key": "hubspotInbound"
         },
         {
           "company": "Nielsen",
           "title": "Market Research Analyst",
           "period": "January 2013 to August 2014",
           "description": "Won 'Commitment to Excellence (2013)' for assissting with analysis and insights for a white paper on Price Divergence. Led and contributed to research on the Canadian Retail/CPG market. Acted as first point of contact for Imperial Oil and Canadian Tire accounts.",
-          "link": "http://www.nielsen.com"
+          "link": "http://www.nielsen.com",
+          "key": "nielsenAnalyst"
         },
         {
           "company": "Canadian Securities Institute",
           "title": "Canadian Securities Course",
           "period": "2013",
           "description": "Certified to sell Mutual Funds in Canada.",
-          "link": "http://www.csi.ca/"
+          "link": "http://www.csi.ca/",
+          "key": "canadianSecuritiesCourse"
         },
         {
           "company": "Google",
           "title": "Digital Analytics Fundamentals",
           "period": "2013",
           "description": "Trained to use Google's digital analytics tools.",
-          "link": "http://www.google.com/"
+          "link": "http://www.google.com/",
+          "key": "googleAnalytics"
         },
         {
           "company": "Wilfrid Laurier University",
-          "title": "Hons. BA Political Science & Psychology (Min. Economics)",
+          "title": "Combination Hons. BA Political Science & Psychology (Min. Economics)",
           "period": "2008 to 2012",
           "description": "Rigorous study in statistics and social research.",
-          "link": "https://www.wlu.ca/"
+          "link": "https://www.wlu.ca/",
+          "key":"laurierCHBA"
         }
       ]
     }
