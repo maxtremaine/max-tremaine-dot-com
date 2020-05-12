@@ -18,7 +18,8 @@
           "link": "string",
           "description": "string",
           "favourite_quote": "string",
-          "rank": "number"
+          "rank": "number",
+          "key": "string"
         },
         "quote": {
           "quote": "string",
@@ -62,85 +63,95 @@
         }
       ],
       "favouriteBooks": {
-        "the_sovereign_individual": {
+        "theSovereignIndividual": {
           "title": "The Sovereign Individual",
           "author": "James Dale Davidson & William Rees-Mogg",
           "link": "https://www.goodreads.com/book/show/82256.The_Sovereign_Individual",
           "description": "A truly forward thinking book about how the internet changes the balance of power between governments and individuals. This book is obsessively well sourced, and can serve as the launchpad for dozens of reading binges. The ultimate success of the book can be measured in the number of specific predictions that have come to fruition.",
           "favourite_quote": "Just as the attempts to preserve the power of knights in armor were doomed to fail in the face of gunpowder weapons, so the modern notions of nationalism and citizenship are doomed to be short-circuited by microtechnology.",
-          "rank": 1
+          "rank": 1,
+          "key": "theSovereignIndividual"
         },
-        "zero_to_one": {
+        "zeroToOne": {
           "title": "Zero to One",
           "author": "Peter Thiel",
           "link": "https://www.goodreads.com/book/show/18050143-zero-to-one",
           "description": "Thiel's unique take on the business book. Instead of truths about business or alegorical tales, he focuses on questions and systems that creative people have to consider when trying to create something new. This book really made me stop and think about my life and my business.",
           "favourite_quote": "All failed companies are the same: they failed to escape competition.",
-          "rank": 2
+          "rank": 2,
+          "key": "zeroToOne"
         },
-        "the_innovators_dilemma": {
+        "theInnovatorsDilemma": {
           "title": "The Innovator's Dilemma",
           "author": "Clayton Christiensen",
           "link": "https://www.goodreads.com/book/show/2615.The_Innovator_s_Dilemma",
           "description": "One of the most thought provoking books I've ever read. Disruptive Innovation is a framework that is much more selective than it is typically used, and I have had a lot of fun trying to apply it to case studies that I see. Great read.",
           "favourite_quote": "The techniques that worked so extraordinarily well when applied to sustaining technologies, however, clearly failed badly when applied to markets or applications that did not yet exist.",
-          "rank": 3
+          "rank": 3,
+          "key": "theInnovatorsDilemma"
         },
-        "free_to_choose": {
+        "freeToChoose": {
           "title": "Free to Choose",
           "author": "Milton Friedman",
           "link": "https://www.goodreads.com/book/show/97820.Free_to_Choose",
           "description": "This book had a fundamental effect on me when I was forming my political opinions. The practical lense to politics is generally underexplored, and this book makes a great case for following outcomes over intentions.",
           "favourite_quote": "The combination of economic and political power in the same hands is a sure recipe for tyranny.",
-          "rank": 4
+          "rank": 4,
+          "key": "freeToChoose"
         },
-        "options_volatility_and_pricing": {
+        "optionsVolatilityAndPricing": {
           "title": "Option Volatility and Pricing",
           "author": "Sheldon Natenberg",
           "link": "http://www.goodreads.com/book/show/119373.Option_Volatility_Pricing",
           "description": "The options trading bible. Absolutely the best book if you want to understand how options are priced and valued.",
           "favourite_quote": "You could say that implied volatility is the marketplace's own forecast of future volatility. It's the consensus among all traders in the marketplace about what they think the future volatility is going to be based on the prices they're currently bidding and asking for the options being traded.",
-          "rank": 5
+          "rank": 5,
+          "key": "optionsVolatilityAndPricing"
         },
-        "sex_trafficking": {
+        "sexTrafficking": {
           "title": "Sex Trafficking",
           "author": "Siddharth Kara",
           "link": "https://www.goodreads.com/book/show/3398414-sex-trafficking",
           "description": "An eye opening book about the darkest side of humanity.",
           "favourite_quote": "The sequence is undeniable; desire leads to suffering, suffering leads to anger, anger leads to violence, and violence destroys the world.",
-          "rank": 6
+          "rank": 6,
+          "key": "sexTrafficking"
         },
-        "the_ascent_of_money": {
+        "theAscentOfMoney": {
           "title": "The Ascent of Money",
           "author": "Niall Ferguson",
           "link": "https://www.goodreads.com/book/show/2714607-the-ascent-of-money",
           "description": "It's impossible to understand markets without understanding finance, and it's impossible to understand finance without understanding money. This is a great book on money.",
           "favourite_quote": "There's really no such thing as 'the future', singular. There are only multiple, unforeseeable futures, which will never lose their capacity to take us by surprise.",
-          "rank": 7
+          "rank": 7,
+          "key": "theAscentOfMoney"
         },
-        "dead_aid": {
+        "deadAid": {
           "title": "Dead Aid",
           "author": "Dambisa Moyo",
           "link": "https://www.goodreads.com/book/show/6184317-dead-aid",
           "description": "A book that rocked the way I thought about foreign aid. Very easy read, and highly informative.",
           "favourite_quote": "Western donors have an aid industry to feed [Western] farmers.",
-          "rank": 8
+          "rank": 8,
+          "key": "deadAid"
         },
-        "this_time_is_different": {
+        "thisTimeIsDifferent": {
           "title": "This Time is Different",
           "author": "Carmen Reinhard & Kenneth Rogoff",
           "link": "https://www.goodreads.com/book/show/6372440-this-time-is-different",
           "description": "Every unprecidented market bust actually follows highly similar features. Really good book to help you understand what to look for in a bubble.",
           "favourite_quote": "More money has been lost because of four words than at the point of a gun. Those words are \"This time is different.\"",
-          "rank": 9
+          "rank": 9,
+          "key": "thisTimeIsDifferent"
         },
-        "confidence_game": {
+        "confidenceGame": {
           "title": "Confidence Game",
           "author": "Christine Richard",
           "link": "https://www.goodreads.com/book/show/8103503-confidence-game",
           "description": "An amazing look into the regulatory failures that led to the real estate bubble in the United States.",
           "favourite_quote": "He didn’t ask people in the room what they thought about the emperor’s new clothes or if they wondered whether the emperor might be a bit cold… He just pointed his finger and said “Naked!”",
-          "rank": 10
+          "rank": 10,
+          "key": "confidenceGame"
         }
       },
       "favouriteQuotes": [
