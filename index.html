@@ -333,19 +333,19 @@
 					job.load(i);
 				}
 			};
-			function objectToSortedList(data, sortKey) {
-				var dataEntries = Object.entries(data);
-				var dataArray = [];
-				for(var i = 0; i < dataEntries.length; i++) {
-					var datum = dataEntries[i][1];
-					datum.key = dataEntries[i][0];
-					dataArray.push(datum);
-				}
+			/**
+			 * @param {string} sortKey
+			 */
+			Object.prototype.toSortedList = function(sortKey) {
+				var data = Object.entries(this);
+				data = data.map(function(datum) {
+					return datum[1];
+				});
 				dataArray.sort(function(a, b) {
 					return a[sortKey] - b[sortKey];
 				});
 				return dataArray;
-			}
+			};
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
 				var extras = document.querySelectorAll(classes.join());
