@@ -83,7 +83,7 @@
 				xhr.responseText = 'text';
 				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-						var data = JSON.parse(xhr.responseText).max_tremaine_dot_com.data;
+						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data;
 						document.getElementById('articles_from_data').style.display = 'block';
 						Article.createBatch(data.articles);
 						Book.createBatch(data.favourite_books);
