@@ -11,7 +11,7 @@ This folder can be served as a website with any HTML server.
 To-Dos
 ------
 
-- [ ] Make the website more browser-friendly.
+- [x] Make the website more browser-friendly.
 - [x] |- Replace fetch with XMLHTTPRequest.
 - [x] |- Replace const and let with var (and check for issues).
 - [ ] Clean up code.
