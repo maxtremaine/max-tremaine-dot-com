@@ -75,21 +75,34 @@
 		</footer>
 		<script>
 			/**
-			 * Coordinates site construction from data.
+			 * Coordinates site construction from static JSON database.
 			 */
-			window.onload = function getPageData() {
+			window.onload = function populatePage() {
 				var xhr = new XMLHttpRequest();
 				xhr.open('GET', 'maxTremaineDotCom.json', true);
 				xhr.responseText = 'text';
 				xhr.onload = function arrangePageData() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+						// Response from the website's database.
 						var res = JSON.parse(xhr.responseText).maxTremaineDotCom;
+
+						// Show section containers.
 						document.getElementById('articles_from_data').style.display = 'block';
+
+						// Format data into arrays of objects.
+						var articles = res.data.articles.toSortedList('order');
+						var books = res.data.favouriteBooks.toSortedList('rank');
+						var quotes = res.data.favouriteQuotes.toSortedList('length');
+						var jobs = res.data.resume.toSortedList('year', true);
+
+						// Crate and place elements on the page.
 						Article.createBatch(res.data.articles);
 						Book.createBatch(res.data.favouriteBooks);
 						Quote.createBatch(res.data.favouriteQuotes);
 						Job.createBatch(res.data.resume);
 						hideExtras();
+
+						// Log meta from the database.
 						logMeta(res.meta);
 					}
 				}
