@@ -25,7 +25,7 @@
 		</section>
 		<script>
 			/**
-			 * Get data from /max_tremaine_dot_com.json and populate the page.
+			 * Populate page from a static database.
 			 */
 			window.onload = function() {
 				var title = (new URL(document.location)).searchParams.get('title');
@@ -41,6 +41,20 @@
 				}
 				xhr.send();
 			};
+			/**
+			 * @param {string} title
+			 * @param {string} author
+			 * @param {string} description
+			 * @param {string} favouriteQuote
+			 * @param {string} link
+			 */
+			function Book(title, author, description, favouriteQuote, link) {
+				this.title = title;
+				this.author = author;
+				this.description = description;
+				this.favouriteQuote = favouriteQuote;
+				this.link = link;
+			}
 			/**
 			 * Take data and populate existing elements on the page.
 			 * @param {any} data - Object containing my favourite books.
