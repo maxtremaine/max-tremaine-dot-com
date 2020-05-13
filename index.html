@@ -96,10 +96,10 @@
 						var jobs = res.data.resume.toSortedList('year', true);
 
 						// Crate and place elements on the page.
-						Article.createBatch(res.data.articles);
-						Book.createBatch(res.data.favouriteBooks);
-						Quote.createBatch(res.data.favouriteQuotes);
-						Job.createBatch(res.data.resume);
+						Article.createBatch(articles);
+						Book.createBatch(books);
+						Quote.createBatch(quotes);
+						Job.createBatch(jobs);
 						hideExtras();
 
 						// Log meta from the database.
@@ -153,12 +153,11 @@
 				rightData.appendChild(articleDescription);
 			};
 			/**
-			 * @param {any} data
+			 * @param {Article[]} articles
 			 */
-			Article.createBatch = function(data) {
-				data = data.toSortedList('order');
-				for(var i = 0; i < data.length; i++) {
-					var article = new Article(data[i].title, data[i].description, data[i].link);
+			Article.createBatch = function(articles) {
+				for(var i = 0; i < articles.length; i++) {
+					var article = new Article(articles[i].title, articles[i].description, articles[i].link);
 					article.load(i);
 				}
 			};
@@ -207,13 +206,12 @@
 			};
 			/**
 			 * Creates a batch of books.
-			 * @param {any} data
+			 * @param {Book[]} books
 			 */
-			Book.createBatch = function createBatch(data) {
-				var dataArray = data.toSortedList('rank');
-				for(var i = 0; i < dataArray.length; i++) {
-					var book = new Book(dataArray[i].key, dataArray[i].title, dataArray[i].author, dataArray[i].link,
-					dataArray[i].description, dataArray[i].favouriteQuote, dataArray[i].rank);
+			Book.createBatch = function createBatch(books) {
+				for(var i = 0; i < books.length; i++) {
+					var book = new Book(books[i].key, books[i].title, books[i].author, books[i].link,
+					books[i].description, books[i].favouriteQuote, books[i].rank);
 					book.load(i);
 				}
 			};
@@ -259,12 +257,11 @@
 				return output;
 			};
 			/**
-			 * @param {any} data
+			 * @param {Quote[]} quotes
 			 */
-			Quote.createBatch = function createBatch(data) {
-				data = data.toSortedList('length')
-				for(var i = 0, j = 0; i < data.length; i++) {
-					var quote = new Quote(data[i].quote, data[i].author, data[i].public);
+			Quote.createBatch = function createBatch(quotes) {
+				for(var i = 0, j = 0; i < quotes.length; i++) {
+					var quote = new Quote(quotes[i].quote, quotes[i].author, quotes[i].public);
 					var loadedPage = quote.load(i, j);
 					if(loadedPage.incrementJ) j++;
 				}
@@ -336,11 +333,13 @@
 				bottomRight.style = itemPadding;
 				bottomRight.appendChild(description);
 			};
-			Job.createBatch = function(data) {
-				data = data.toSortedList('year', true);
-				for(var i = 0; i < data.length; i++) {
-					var job = new Job(data[i].company, data[i].title, data[i].period, data[i].description,
-						data[i].link);
+			/**
+			 * @param {Job[]} jobs
+			 */
+			Job.createBatch = function(jobs) {
+				for(var i = 0; i < jobs.length; i++) {
+					var job = new Job(jobs[i].company, jobs[i].title, jobs[i].period, jobs[i].description,
+						jobs[i].link);
 					job.load(i);
 				}
 			};
