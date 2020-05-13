@@ -34,8 +34,8 @@
 				xhr.responseType = 'text';
 				xhr.onload = function() {
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks;
-						if(data[title] === undefined) document.location = '/'; // Go away bad requests.
+						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks[title];
+						if(data === undefined) document.location = '/'; // Go away bad requests.
 						var book = new Book(data.title, data.author, data.description, data.favouriteQuote, data.link);
 						book.populatePage();
 					}
@@ -72,7 +72,7 @@
 				document.title = "Max's Books: " + this.title;
 				titleHeading.appendChild(title);
 				authorSpan.appendChild(author);
-				goodreadsLink.href = data.link;
+				goodreadsLink.href = this.link;
 				descriptionParagraph.appendChild(description);
 				favouriteQuote.appendChild(quote);
 			}

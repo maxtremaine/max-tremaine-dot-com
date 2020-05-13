@@ -17,7 +17,7 @@ To-Dos
 - [ ] Clean up code.
 - [ ] |- Add documentation to functions.
 - [ ] |- Change underscores to dashes and camelCase.
-- [ ] |- Switch over to sorted arrays from objects (quotes by length).
+- [x] |- Switch over to sorted arrays from objects (quotes by length).
 - [ ] Clean up database.
 - [x] |- Add keys for database items.
 - [x] |- Add data types.
