@@ -75,7 +75,7 @@
 		</footer>
 		<script>
 			/**
-			 * Coordinates site construction from static JSON database.
+			 * Coordinates site construction from a static JSON database.
 			 */
 			window.onload = function populatePage() {
 				var xhr = new XMLHttpRequest();
@@ -109,7 +109,6 @@
 				xhr.send();
 			};
 			/**
-			 * @class
 			 * @param {string} title
 			 * @param {string} description
 			 * @param {string} link
@@ -121,13 +120,13 @@
 			}
 			Article.section = document.getElementById('article_table');
 			/**
-			 * This method creates article items in the following format:
-			 * <tr class=[class] style="vertical-align: top;">
-			 *     <td style="padding: 2vh;">
-			 *          <a href=[link] target="_blank">[title]</a>
-			 *     </td>
-			 *     <td style="padding: 2vh;">[description]</td>
-			 * </tr>
+			 * Creates article items in the following format:
+			 *     <tr class=[class] style="vertical-align: top;">
+			 *         <td style="padding: 2vh;">
+			 *             <a href=[link] target="_blank">[title]</a>
+			 *         </td>
+			 *         <td style="padding: 2vh;">[description]</td>
+			 *     </tr>
 			 * @param {number} i
 			 */
 			Article.prototype.load = function LoadArticle(i) {
@@ -140,7 +139,9 @@
 				var articlePadding = 'padding: 2vh;';
 				Article.section.appendChild(articleRow);
 				articleRow.className = i > 1 ? 'extra_articles' : '';
-				articleRow.style = (i + 1) % 2 === 0 ? 'vertical-align: top; background-color: WhiteSmoke;' : 'vertical-align: top;';
+				articleRow.style = (i + 1) % 2 === 0
+					? 'vertical-align: top; background-color: WhiteSmoke;'
+					: 'vertical-align: top;';
 				articleRow.appendChild(leftData);
 				leftData.className = 'descriptor';
 				leftData.style = articlePadding;
@@ -153,11 +154,13 @@
 				rightData.appendChild(articleDescription);
 			};
 			/**
+			 * Creates a bunch of articles from an array.
 			 * @param {Article[]} articles
 			 */
 			Article.createBatch = function(articles) {
 				for(var i = 0; i < articles.length; i++) {
-					var article = new Article(articles[i].title, articles[i].description, articles[i].link);
+					var article = new Article(articles[i].title, articles[i].description,
+						articles[i].link);
 					article.load(i);
 				}
 			};
@@ -179,16 +182,13 @@
 				this.favouriteQuote = favouriteQuote;
 				this.rank = rank;
 			}
-			/**
-			 * @constant {object}
-			 */
 			Book.section = document.getElementById('favourite_books_list');
 			/**
-			 * This method creates book items in the following format:
-			 * <li class=[class] style="list-style-position:inside;">
-			 *     <a href=[link] target="_blank">[title]</a>
-			 *     [author]
-			 * </li>
+			 * Creates book items in the following format:
+			 *     <li class=[class] style="list-style-position:inside;">
+			 *         <a href=[link] target="_blank">[title]</a>
+			 *         [author]
+			 *     </li>
 			 * @param {number} i
 			 */
 			Book.prototype.load = function loadBook(i) {
@@ -205,7 +205,7 @@
 				bookItem.appendChild(author);
 			};
 			/**
-			 * Creates a batch of books.
+			 * Creates a bunch of books from an array.
 			 * @param {Book[]} books
 			 */
 			Book.createBatch = function createBatchOfBooks(books) {
@@ -227,17 +227,17 @@
 			}
 			Quote.section = document.getElementById('favourite_quotes_list');
 			/**
-			 * This loop creates quote items in the following format:
-			 * <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
-			 *     <q>[quote]</q>
-			 *     <p style="text-align:right;">[author]</p>
-			 * </li>
-			 * @param {number} i
-			 * @param {number} j
+			 * Creates quote items in the following format:
+			 *     <li class=[class] style="list-style-type:none; margin: 2vh 1vh;">
+			 *         <q>[quote]</q>
+			 *         <p style="text-align:right;">[author]</p>
+			 *     </li>
+			 * @param {number} i Used as an index.
+			 * @param {number} j Determines hidden quotes.
+			 * @returns {boolean} Whether j should be incremented.
 			 */
 			Quote.prototype.load = function loadQuote(i, j) {
-				var output = {};
-				output.incrementJ = false;
+				var incrementJ = false;
 				if(this.public) {
 					var quoteItem = document.createElement('li');
 					var quoteElement = document.createElement('q');
@@ -252,22 +252,22 @@
 					quoteItem.appendChild(authorElement);
 					authorElement.style = 'text-align:right;';
 					authorElement.appendChild(author);
-					output.incrementJ = true;
+					incrementJ = true;
 				}
-				return output;
+				return incrementJ;
 			};
 			/**
+			 * Creates a bunch of quotes from an array.
 			 * @param {Quote[]} quotes
 			 */
 			Quote.createBatch = function createBatch(quotes) {
 				for(var i = 0, j = 0; i < quotes.length; i++) {
 					var quote = new Quote(quotes[i].quote, quotes[i].author, quotes[i].public);
-					var loadedPage = quote.load(i, j);
-					if(loadedPage.incrementJ) j++;
+					var incrementJ = quote.load(i, j); // "j" defines cutoff for hidden quotes.
+					if(incrementJ) j++;
 				}
 			};
 			/**
-			 * @class Job - Record of work I've done.
 			 * @param {string} company
 			 * @param {string} title
 			 * @param {string} period
@@ -283,17 +283,18 @@
 			}
 			Job.section = document.getElementById('resume_table');
 			/**
-			 * This method creates resume items in the Job section in the following format:
-			 * <tr class=[class] style="vertical-align: top;">
-			 *     <td class="descriptor" style="padding: 2vh;">
-			 *         <a href=[link] target="_blank">[company]</a>
-			 *     </td>
-			 *     <td style="padding: 2vh;">[title]</td>
-			 * </tr>
-			 * <tr class=[class] style="vertical-align: top;">
-			 *     <td class="descriptor detail" style="padding: 2vh;">[period]</td>
-			 *     <td style="padding: 2vh;" class="detail">[detail]</td>
-			 * </tr>
+			 * Creates resume items in the Job section in the following format:
+			 *     <tr class=[class] style="vertical-align: top;">
+			 *         <td class="descriptor" style="padding: 2vh;">
+			 *             <a href=[link] target="_blank">[company]</a>
+			 *         </td>
+			 *         <td style="padding: 2vh;">[title]</td>
+			 *     </tr>
+			 *     <tr class=[class] style="vertical-align: top;">
+			 *         <td class="descriptor detail" style="padding: 2vh;">[period]</td>
+			 *         <td style="padding: 2vh;" class="detail">[detail]</td>
+			 *     </tr>
+			 * @param {number} i
 			 */
 			Job.prototype.load = function(i) {
 				var topRow = document.createElement('tr');
@@ -344,7 +345,9 @@
 				}
 			};
 			/**
-			 * @param {string} sortKey
+			 * Turn an object used to store keyed objects into a list of objects.
+			 * @param {string} sortKey Shared key used to sort objects.
+			 * @param {boolean} reverse Sort from largest to smallest.
 			 * @returns {any[]}
 			 */
 			Object.prototype.toSortedList = function(sortKey, reverse) {
@@ -357,6 +360,9 @@
 				});
 				return data;
 			};
+			/**
+			 * Hide any extra items (as classed).
+			 */
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
 				var extras = document.querySelectorAll(classes.join());
@@ -364,8 +370,10 @@
 					extras[i].style.display = 'none';
 				}
 			}
+			/**
+			 * Log meta for other nerds.
+			 */
 			function logMeta(data) {
-				// Log the metadata for other nerds.
 				console.log(['Author: ', data.author].join(''));
 				console.log(['Contact: ', data.contact].join(''));
 				console.log(['Last Updated: ', data.lastUpdated].join(''));
@@ -373,13 +381,18 @@
 			}
 			/**
 			 * Extend or reduce a list.
+			 * @param {string} extraClass
+			 * @param {string} buttonToHide
+			 * @param {string} buttonToShow
+			 * @param {string} extraClassDisplayValue
 			 */
 			function listButton(extraClass, buttonToHide, buttonToShow, extraClassDisplayValue) {
-				if(extraClassDisplayValue === undefined) {extraClassDisplayValue = 'none';}
+				if(extraClassDisplayValue === undefined) extraClassDisplayValue = 'none';
 				document.getElementById(buttonToHide).style.display = 'none';
 				document.getElementById(buttonToShow).style.display = 'block';
 				var extraClassElements = document.getElementsByClassName(extraClass);
-				for(let x of extraClassElements) {x.style.display = extraClassDisplayValue;}
+				for(var i = 0; i < extraClassElements.length; i++)
+					extraClassElements[i].style.display = extraClassDisplayValue;
 			}
 		</script>
 	</body>
