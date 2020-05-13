@@ -191,7 +191,7 @@
 			 * </li>
 			 * @param {number} i
 			 */
-			Book.prototype.load = function LoadBook(i) {
+			Book.prototype.load = function loadBook(i) {
 				var link = 'book.html?title=' + this.key;
 				var bookItem = document.createElement('li');
 				var bookLink = document.createElement('a');
@@ -208,7 +208,7 @@
 			 * Creates a batch of books.
 			 * @param {Book[]} books
 			 */
-			Book.createBatch = function createBatch(books) {
+			Book.createBatch = function createBatchOfBooks(books) {
 				for(var i = 0; i < books.length; i++) {
 					var book = new Book(books[i].key, books[i].title, books[i].author, books[i].link,
 					books[i].description, books[i].favouriteQuote, books[i].rank);
