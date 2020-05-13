@@ -36,7 +36,8 @@
 					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
 						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks;
 						if(data[title] === undefined) document.location = '/'; // Go away bad requests.
-						populatePage(data[title]);
+						var book = new Book(data.title, data.author, data.description, data.favouriteQuote, data.link);
+						book.populatePage();
 					}
 				}
 				xhr.send();
@@ -56,20 +57,19 @@
 				this.link = link;
 			}
 			/**
-			 * Take data and populate existing elements on the page.
-			 * @param {any} data - Object containing my favourite books.
+			 * Take book data and add it to the page.
 			 */
-			function populatePage(data) {
+			Book.prototype.populatePage = function populatePage() {
 				var titleHeading = document.getElementById('title');
 				var authorSpan = document.getElementById('author');
 				var goodreadsLink = document.getElementById('link');
 				var descriptionParagraph = document.getElementById('description');
 				var favouriteQuote = document.getElementById('favouriteQuote');
-				var title = document.createTextNode(data.title);
-				var author = document.createTextNode(data.author);
-				var description = document.createTextNode(data.description);
-				var quote = document.createTextNode(data.favourite_quote);
-				document.title = "Max's Books: " + data.title; 
+				var title = document.createTextNode(this.title);
+				var author = document.createTextNode(this.author);
+				var description = document.createTextNode(this.description);
+				var quote = document.createTextNode(this.favouriteQuote);
+				document.title = "Max's Books: " + this.title;
 				titleHeading.appendChild(title);
 				authorSpan.appendChild(author);
 				goodreadsLink.href = data.link;
