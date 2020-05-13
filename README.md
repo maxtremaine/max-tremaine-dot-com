@@ -14,12 +14,12 @@ To-Dos
 - [x] Make the website more browser-friendly.
 - [x] |- Replace fetch with XMLHTTPRequest.
 - [x] |- Replace const and let with var (and check for issues).
-- [ ] Clean up code.
-- [ ] |- Add documentation to functions.
-- [ ] |- Change underscores to dashes and camelCase.
+- [x] Clean up code.
+- [x] |- Add documentation to functions.
+- [x] |- Change underscores to dashes and camelCase.
 - [x] |- Switch over to sorted arrays from objects (quotes by length).
 - [ ] Clean up database.
 - [x] |- Add keys for database items.
 - [x] |- Add data types.
-- [ ] |- Change database keys to camelCase.
-- [ ] Add errors to book.html.
+- [x] |- Change database keys to camelCase.
+- [x] Add errors to book.html.
