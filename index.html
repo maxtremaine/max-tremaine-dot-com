@@ -354,8 +354,8 @@
 				if(reverse === undefined) reverse = false;
 				var data = Object.values(this);
 				data.sort(function(a, b) {
-					var counter = a[sortKey] - b[sortKey]
-					if(reverse) counter = -counter
+					var counter = a[sortKey] - b[sortKey];
+					if(reverse) counter = -counter;
 					return counter;
 				});
 				return data;

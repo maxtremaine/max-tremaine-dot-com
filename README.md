@@ -12,3 +12,4 @@ To-Dos
 ------
 
 - [ ] Rename .createBatch to reflect population of data.
+- [ ] Switch from object to maps for data handling.
