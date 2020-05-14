@@ -211,7 +211,7 @@
 			Book.createBatch = function createBatchOfBooks(books) {
 				for(var i = 0; i < books.length; i++) {
 					var book = new Book(books[i].key, books[i].title, books[i].author, books[i].link,
-					books[i].description, books[i].favouriteQuote, books[i].rank);
+						books[i].description, books[i].favouriteQuote, books[i].rank);
 					book.load(i);
 				}
 			};
@@ -366,12 +366,12 @@
 			function hideExtras() {
 				var classes = ['.extra_books', '.extra_quotes', '.extra_articles', '.extra_jobs'];
 				var extras = document.querySelectorAll(classes.join());
-				for(var i = 0; i < extras.length; i++) {
+				for(var i = 0; i < extras.length; i++)
 					extras[i].style.display = 'none';
-				}
 			}
 			/**
 			 * Log meta for other nerds.
+			 * @param {any} data
 			 */
 			function logMeta(data) {
 				console.log(['Author: ', data.author].join(''));
