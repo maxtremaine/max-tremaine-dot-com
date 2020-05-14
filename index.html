@@ -81,8 +81,8 @@
 				var xhr = new XMLHttpRequest();
 				xhr.open('GET', 'maxTremaineDotCom.json', true);
 				xhr.responseText = 'text';
-				xhr.onload = function arrangePageData() {
-					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+				xhr.onloadend = function arrangePageData() {
+					if(xhr.status === 200) {
 						// Response from the website's database.
 						var res = JSON.parse(xhr.responseText).maxTremaineDotCom;
 
@@ -102,8 +102,13 @@
 						Job.createBatch(jobs);
 						hideExtras();
 
+						// Log xhr status.
+						console.log("Database xhr status: " + xhr.status + " - " + xhr.statusText);
+
 						// Log meta from the database.
 						logMeta(res.meta);
+					} else {
+						console.log("Database xhr status: " + xhr.status + " - " + xhr.statusText);
 					}
 				}
 				xhr.send();

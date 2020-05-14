@@ -32,12 +32,15 @@
 				var xhr = new XMLHttpRequest();
 				xhr.open('GET', 'maxTremaineDotCom.json', true);
 				xhr.responseType = 'text';
-				xhr.onload = function() {
-					if(xhr.readyState === xhr.DONE && xhr.status === 200) {
+				xhr.onloadend = function() {
+					if(xhr.status === 200) {
 						var data = JSON.parse(xhr.responseText).maxTremaineDotCom.data.favouriteBooks[title];
 						if(data === undefined) document.location = '/'; // Go away bad requests.
 						var book = new Book(data.title, data.author, data.description, data.favouriteQuote, data.link);
 						book.populatePage();
+						console.log(xhr.statusText);
+					} else {
+						console.error(xhr.statusText);
 					}
 				}
 				xhr.send();
