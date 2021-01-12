@@ -1,3 +1,5 @@
+const pipe = (...fns) => x => fns.reduce((g, f) => f(g), x)
+
 const findDBSectionArr = location => db => {
     const foundObject = db.maxtremaine.data[location];
     return Object.values(foundObject);
@@ -11,24 +13,40 @@ const generateQuoteHTML = ({quote, author}) => {
     return `<p><q>${quote}</q><br/>- ${author}</p>`;
 };
 
-const addInnerHTML = (parentId, string) => {
+const addInnerHTML = parentId => html => {
     const parent = document.getElementById(parentId);
-    parent.innerHTML = string;
+    parent.innerHTML = html;
 };
 
-const buildSection = (location, generator, destination, filter = '') => db => {
-    const sectionArr = findDBSectionArr(location)(db);
-    const filteredArr = filter !== ''?
-        sectionArr.filter(v => v[filter]):
-        sectionArr;
-    const html = filteredArr
+const filterArr = filterBy => sectionArr => (
+    filterBy === ''?
+    sectionArr:
+    sectionArr.filter(v => v[filterBy])
+);
+
+const generateHTML = generator => sectionArr => (
+    sectionArr
         .map(generator)
-        .join('');
-    addInnerHTML(destination, html);
-    return db;
-};
+        .join('')
+);
+
+const buildSection = (location, generator, destination, filter = '') => pipe(
+    findDBSectionArr(location),
+    filterArr(filter),
+    generateHTML(generator),
+    addInnerHTML(destination)
+)
+
+const buildArticles = buildSection('articles', generateArticleHTML, 'articleListContainer');
+const buildQuotes = buildSection('favouriteQuotes', generateQuoteHTML, 'quoteListContainer', 'public');
 
 const parseJSON = rawData => rawData.json();
+
+const buildSections = db => {
+    buildArticles(db);
+    buildQuotes(db);
+    return db;
+};
 
 const showHiddenNodes = db => {
     const hiddenNodes = document.getElementsByClassName("hiddenWithoutJS");
@@ -38,9 +56,8 @@ const showHiddenNodes = db => {
 }
 
 const getWebsiteData = fetch('src/websiteData.json');
+
 getWebsiteData
     .then(parseJSON)
-    .then(buildSection('articles', generateArticleHTML, 'articleListContainer'))
-    .then(buildSection('favouriteQuotes', generateQuoteHTML, 'quoteListContainer', 'public'))
+    .then(buildSections)
     .then(showHiddenNodes);
-
