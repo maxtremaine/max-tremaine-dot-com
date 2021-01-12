@@ -1,63 +1,77 @@
-const pipe = (...fns) => x => fns.reduce((g, f) => f(g), x)
+// The JS Component of Maxtremaine.com
+
+// Utilities. Thank you Eric Elliot.
+
+const pipe = (...fns) => x => fns.reduce((g, f) => f(g), x);
 
 const findDBSectionArr = location => db => {
     const foundObject = db.maxtremaine.data[location];
     return Object.values(foundObject);
 };
 
-const generateArticleHTML = ({link, title, description}) => {
-    return `<p><a href="${link}">${title}</a>: ${description}</p>`;
+const workAndPass = (fn) => (...params) => db => {
+    fn(...params)(db);
+    return Promise.resolve(db);
 };
 
-const generateQuoteHTML = ({quote, author}) => {
-    return `<p><q>${quote}</q><br/>- ${author}</p>`;
-};
-
-const addInnerHTML = parentId => html => {
-    const parent = document.getElementById(parentId);
-    parent.innerHTML = html;
-};
-
-const filterArr = filterBy => sectionArr => (
+const filterArr = filterBy => arr => (
     filterBy === ''?
-    sectionArr:
-    sectionArr.filter(v => v[filterBy])
+    arr:
+    arr.filter(v => v[filterBy])
 );
 
-const generateHTML = generator => sectionArr => (
-    sectionArr
-        .map(generator)
-        .join('')
+const mapAndJoin = fn => arr => arr.map(fn).join('');
+
+// Assembling data and generating HTML.
+
+const generateArticleHTML = ({link, title, description}) => (
+    `<p><a href="${link}">${title}</a>: ${description}</p>`
 );
 
-const buildSection = (location, generator, destination, filter = '') => pipe(
+const generateQuoteHTML = ({quote, author}) => (
+    `<p><q>${quote}</q><br/>- ${author}</p>`
+);
+
+const addInnerHTML = parentId => html => (
+    document
+        .getElementById(parentId)
+        .innerHTML = html
+);
+
+const buildSection = ({location, generator, destination, filter = ''}) => pipe(
     findDBSectionArr(location),
     filterArr(filter),
-    generateHTML(generator),
+    mapAndJoin(generator),
     addInnerHTML(destination)
-)
+);
 
-const buildArticles = buildSection('articles', generateArticleHTML, 'articleListContainer');
-const buildQuotes = buildSection('favouriteQuotes', generateQuoteHTML, 'quoteListContainer', 'public');
+const buildArticles = workAndPass(buildSection)({
+    location: 'articles',
+    generator: generateArticleHTML,
+    destination: 'articleListContainer'
+});
 
-const parseJSON = rawData => rawData.json();
+const buildQuotes = workAndPass(buildSection)({
+    location: 'favouriteQuotes',
+    generator: generateQuoteHTML,
+    destination: 'quoteListContainer',
+    filter: 'public'
+});
 
-const buildSections = db => {
-    buildArticles(db);
-    buildQuotes(db);
-    return db;
-};
-
-const showHiddenNodes = db => {
-    const hiddenNodes = document.getElementsByClassName("hiddenWithoutJS");
-    const arrayNodesArr = Array.from(hiddenNodes);
-    arrayNodesArr.forEach(node => node.style.display = "block");
-    return db;
-}
+// Fetching data and building the website.
 
 const getWebsiteData = fetch('src/websiteData.json');
 
+const parseJSON = rawData => rawData.json();
+
+const showHiddenNodes = () => {
+    const hiddenNodes = document.getElementsByClassName('hiddenWithoutJS');
+    const hiddenNodesArr = Array.from(hiddenNodes);
+    hiddenNodesArr.forEach(node => node.style.display = 'block');
+};
+
 getWebsiteData
     .then(parseJSON)
-    .then(buildSections)
+    .then(buildArticles)
+    .then(buildQuotes)
     .then(showHiddenNodes);
