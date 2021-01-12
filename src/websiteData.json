@@ -1,5 +1,5 @@
 {
-  "maxTremaineDotCom": {
+  "maxtremaine": {
     "meta": {
       "author": "Max Tremaine",
       "contact": "me@maxtremaine.com",
@@ -41,32 +41,39 @@
     },
     "data": {
       "articles": {
+        "employeeStockOptions": {
+          "title": "Employee Stock Options in Context",
+          "description": "A storybook startup and its journey through corporate finance.",
+          "link": "https://medium.com/@maxtremaine/employee-stock-options-in-context-e54a3528cff8",
+          "order": 1,
+          "key": "employeeStockOptions"
+        },
         "theWorstPartOfTravel": {
           "title": "The Worst Part of Travel",
           "description": "Some horror stories about visa applications from Sherpa's customer discovery interviews.",
           "link": "https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p",
-          "order": 1,
+          "order": 2,
           "key": "theWorstPartOfTravel"
         },
         "nobodyLikesTravelVisas": {
           "title": "Nobody Likes Travel Visas",
           "description": "An overview of some of my findings researching travel visa requirements, and people's experiences applying for travel visas.",
           "link": "https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py",
-          "order": 2,
+          "order": 3,
           "key": "nobodyLikesTravelVisas"
         },
         "yourPhoneWillReplaceYourPassport": {
           "title": "Your Phone Will Replace Your Passport",
           "description": "Some of my thoughts on the changing travel documentation landscape.",
           "link": "https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5",
-          "order": 3,
+          "order": 4,
           "key": "yourPhoneWillReplaceYourPassport"
         },
         "lawsOnYourPhone": {
           "title": "Laws on Your Phone",
           "description": "Some of my thoughts on the application of mobile technologies to the consumption of legal and regulatory data.",
           "link": "https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0",
-          "order": 4,
+          "order": 5,
           "key": "lawsOnYourPhone"
         }
       },
