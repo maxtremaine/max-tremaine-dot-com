@@ -9,11 +9,6 @@ const findDBSectionArr = location => db => {
     return Object.values(foundObject);
 };
 
-const workAndPass = (fn) => (...params) => db => {
-    fn(...params)(db);
-    return Promise.resolve(db);
-};
-
 const filterArr = filterBy => arr => (
     filterBy === ''?
     arr:
@@ -24,12 +19,12 @@ const mapAndJoin = fn => arr => arr.map(fn).join('');
 
 // Assembling data and generating HTML.
 
-const generateArticleHTML = ({link, title, description}) => (
-    `<p><a href="${link}">${title}</a>: ${description}</p>`
+const generateContact = ({title, link}) => (
+    `<a href="${link}" target="_blank">${title}</a></br>`
 );
 
-const generateQuoteHTML = ({quote, author}) => (
-    `<p><q>${quote}</q><br/>- ${author}</p>`
+const generateArticleHTML = ({link, title, description}) => (
+    `<li><a href="${link}" target="_blank">${title}</a>: ${description}</li>`
 );
 
 const addInnerHTML = parentId => html => (
@@ -45,22 +40,21 @@ const buildSection = ({location, generator, destination, filter = ''}) => pipe(
     addInnerHTML(destination)
 );
 
-const buildArticles = workAndPass(buildSection)({
+const buildContact = buildSection({
+    location: 'contact',
+    generator: generateContact,
+    destination: 'contact'
+})
+
+const buildArticles = buildSection({
     location: 'articles',
     generator: generateArticleHTML,
-    destination: 'articleListContainer'
-});
-
-const buildQuotes = workAndPass(buildSection)({
-    location: 'favouriteQuotes',
-    generator: generateQuoteHTML,
-    destination: 'quoteListContainer',
-    filter: 'public'
+    destination: 'articles'
 });
 
 // Fetching data and building the website.
 
-const getWebsiteData = fetch('src/websiteData.json');
+const getWebsiteData = fetch('/src/websiteData.json');
 
 const parseJSON = rawData => rawData.json();
 
@@ -70,8 +64,15 @@ const showHiddenNodes = () => {
     hiddenNodesArr.forEach(node => node.style.display = 'block');
 };
 
+const hideJsWarning = () => {
+    document.getElementById('jsWarning').style.display = 'none';
+};
+
 getWebsiteData
     .then(parseJSON)
-    .then(buildArticles)
-    .then(buildQuotes)
+    .then(data => {
+        buildArticles(data);
+        buildContact(data);
+    })
+    .then(hideJsWarning)
     .then(showHiddenNodes);

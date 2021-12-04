@@ -2,29 +2,24 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>Max Tremaine.com</title>
 		<link href="icon.jpg" rel="icon" type="image/jpeg" />
-		<link href="https://fonts.googleapis.com/css?family=Lato|Josefin+Slab:100" rel="stylesheet" />
-		<link href="src/drc.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+		<title>Max Tremaine.com</title>
     </head>
     <body>
-        <h1>Max Tremaine<span id="dotcom">.com</span></h1>
-        <p>Hello,</p>
-        <p>Welcome to Max Tremaine(.com), the internet's best summary resource for information about me, Max Tremaine. I spend most of my time working on <a href="http://www.joinsherpa.com" target="_blank">Sherpa</a>: the easiest way to get a travel visa. I also host <a href="http://www.traveltechto.com" target="_blank">TravelTechTO</a> on a quarterly basis. I'm interested in statistical learning, citizenship, database management systems, and disruption theory.</p>
-        <p>If you're a computer, you can also read my website <a href="src/websiteData.json" target ="_blank">in JSON</a>.</p>
-        <p>Cheers,</p>
-        <p>Max</p>
-        <h2>How to get in touch:</h3>
-        <section>
-            <p>My public <a href="https://www.twitter.com/maxtremaine" target="_blank">Twitter</a> account has direct messages turned on, and I check it on a weekly basis.</p>
-            <p>I check my <a href="https://ca.linkedin.com/in/maxtremaine" target="_blank">LinkedIn</a> account often, but I don't have a good eye for invites, so please include a message.</p>
-        </section>
-        <h2 class="hiddenWithoutJS">Articles:</h3>
-        <section class="hiddenWithoutJS" id="articleListContainer"></section>
-        <h2 class="hiddenWithoutJS">Favourite Quotes:</h2>
-        <section class="hiddenWithoutJS" id="quoteListContainer"></section>
-        <hr/>
-        <p>Thanks for stopping by.</p>
+        <header>
+            <h1>Max Tremaine<span style="font-size:1rem;">.com</span></h1>
+        </header>
+        <main>
+            <p id="jsWarning">If you don't have JavaScript turned on, you're not going to see much here.</p>
+            <h2 class="hiddenWithoutJS">Articles</h2>
+            <ul id="articles"></ul>
+        </main>
+        <footer>
+            <p>Max Tremaine.com</p>
+            <div id="contact"></div>
+        </footer>
         <script src="src/buildWebsite.js"></script>
     </body>
 </html>

@@ -6,6 +6,10 @@
       "lastUpdated": "September 16, 2017",
       "welcomeMessage": "\nHi Stranger!\n\nWelcome to the console of my website. Pretty sweet right? You can find all of the code that I used to put this together in the source, vanilla HTML and JS, and find all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max",
       "types": {
+        "contact": {
+          "title": "string",
+          "link": "string"
+        },
         "article": {
           "title": "string",
           "description": "string",
@@ -40,6 +44,16 @@
       }
     },
     "data": {
+      "contact": {
+        "twitter": {
+          "title": "Twitter",
+          "link": "https://twitter.com/maxtremaine"
+        },
+        "linkedin": {
+          "title": "LinkedIn",
+          "link": "https://www.linkedin.com/in/maxtremaine/"
+        }
+      },
       "articles": {
         "employeeStockOptions": {
           "title": "Employee Stock Options in Context",
