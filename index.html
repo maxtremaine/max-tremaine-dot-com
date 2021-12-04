@@ -6,15 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 		<title>Max Tremaine.com</title>
-        <style>
-            .hiddenWithoutJS {
-                display: none;
-            }
-        </style>
+        <style>.hiddenWithoutJS { display: none; }</style>
     </head>
     <body>
         <header>
-            <h1>Max Tremaine<span style="font-size:1rem;">.com</span></h1>
+            <h1>Max Tremaine<span style="font-size:1rem;font-family:monospace;">.com</span></h1>
         </header>
         <main>
             <p id="jsWarning"><mark>If you don't have JavaScript turned on, you're not going to see anything here.</mark></p>
@@ -22,8 +18,8 @@
             <ul id="articles"></ul>
         </main>
         <footer>
-            <p>Max Tremaine.com</p>
-            <div id="contact"></div>
+            <p>This website was created by Max Tremaine using <a href="https://simplecss.org/" target="_blank">Simple.css</a> and <a href="/src/websiteData.json" target="_blank">a static JOSON file</a>.</p>
+            <nav id="contact"></nav>
         </footer>
         <script src="src/buildWebsite.js"></script>
     </body>

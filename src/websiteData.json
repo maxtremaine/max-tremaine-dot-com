@@ -3,7 +3,7 @@
     "meta": {
       "author": "Max Tremaine",
       "contact": "me@maxtremaine.com",
-      "lastUpdated": "September 16, 2017",
+      "lastUpdated": "Dec 4, 2021",
       "welcomeMessage": "\nHi Stranger!\n\nWelcome to the console of my website. Pretty sweet right? You can find all of the code that I used to put this together in the source, vanilla HTML and JS, and find all of the data at http://www.maxtremaine.com/max_tremaine_dot_com.json.\n\n-Max",
       "types": {
         "contact": {
@@ -55,39 +55,52 @@
         }
       },
       "articles": {
+        "tradingLotteryTickets": {
+          "title": "Trading Lottery Tickets",
+          "date": "Apr 25, 2021",
+          "description": "Mistaking probability for chance will lead you to a meaningless life.",
+          "link": "https://maxtremaine.medium.com/trading-lottery-tickets-2857bebb153",
+          "order": 1,
+          "key": "tradingLotteryTickets"
+        },
         "employeeStockOptions": {
           "title": "Employee Stock Options in Context",
+          "date": "Aug 28, 2020",
           "description": "A storybook startup and its journey through corporate finance.",
           "link": "https://medium.com/@maxtremaine/employee-stock-options-in-context-e54a3528cff8",
-          "order": 1,
+          "order": 2,
           "key": "employeeStockOptions"
         },
         "theWorstPartOfTravel": {
           "title": "The Worst Part of Travel",
+          "date": "Dec 7, 2016",
           "description": "Some horror stories about visa applications from Sherpa's customer discovery interviews.",
           "link": "https://medium.com/sherpateam/stories-from-our-users-5b8afad1633#.ljg6m113p",
-          "order": 2,
+          "order": 3,
           "key": "theWorstPartOfTravel"
         },
         "nobodyLikesTravelVisas": {
           "title": "Nobody Likes Travel Visas",
+          "date": "Nov 11, 2016",
           "description": "An overview of some of my findings researching travel visa requirements, and people's experiences applying for travel visas.",
           "link": "https://medium.com/sherpateam/nobody-likes-travel-visas-cd0031dff186#.td9nqa5py",
-          "order": 3,
+          "order": 4,
           "key": "nobodyLikesTravelVisas"
         },
         "yourPhoneWillReplaceYourPassport": {
           "title": "Your Phone Will Replace Your Passport",
+          "date": "Jul 4, 2016",
           "description": "Some of my thoughts on the changing travel documentation landscape.",
           "link": "https://medium.com/sherpateam/your-phone-as-a-passport-e2463191db36#.4urbbtem5",
-          "order": 4,
+          "order": 5,
           "key": "yourPhoneWillReplaceYourPassport"
         },
         "lawsOnYourPhone": {
           "title": "Laws on Your Phone",
+          "date": "Jun 20, 2016",
           "description": "Some of my thoughts on the application of mobile technologies to the consumption of legal and regulatory data.",
           "link": "https://medium.com/sherpateam/laws-on-your-phone-d0a116568918#.2t4mo5gs0",
-          "order": 5,
+          "order": 6,
           "key": "lawsOnYourPhone"
         }
       },
