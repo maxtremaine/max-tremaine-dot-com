@@ -33,23 +33,21 @@ const addInnerHTML = parentId => html => (
         .innerHTML = html
 );
 
-const buildSection = ({location, generator, destination, filter = ''}) => pipe(
+const buildSection = ({location, generator, filter = ''}) => pipe(
     findDBSectionArr(location),
     filterArr(filter),
     mapAndJoin(generator),
-    addInnerHTML(destination)
+    addInnerHTML(location)
 );
 
 const buildContact = buildSection({
     location: 'contact',
-    generator: generateContact,
-    destination: 'contact'
+    generator: generateContact
 })
 
 const buildArticles = buildSection({
     location: 'articles',
-    generator: generateArticleHTML,
-    destination: 'articles'
+    generator: generateArticleHTML
 });
 
 // Fetching data and building the website.
@@ -68,11 +66,13 @@ const hideJsWarning = () => {
     document.getElementById('jsWarning').style.display = 'none';
 };
 
+// Actions
+
+hideJsWarning();
 getWebsiteData
     .then(parseJSON)
     .then(data => {
         buildArticles(data);
         buildContact(data);
     })
-    .then(hideJsWarning)
     .then(showHiddenNodes);

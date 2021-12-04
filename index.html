@@ -6,13 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 		<title>Max Tremaine.com</title>
+        <style>
+            .hiddenWithoutJS {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <header>
             <h1>Max Tremaine<span style="font-size:1rem;">.com</span></h1>
         </header>
         <main>
-            <p id="jsWarning">If you don't have JavaScript turned on, you're not going to see much here.</p>
+            <p id="jsWarning"><mark>If you don't have JavaScript turned on, you're not going to see anything here.</mark></p>
             <h2 class="hiddenWithoutJS">Articles</h2>
             <ul id="articles"></ul>
         </main>
