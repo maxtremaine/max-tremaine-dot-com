@@ -26,7 +26,7 @@ const mapAndJoin = fn => arr => arr.map(fn).join('');
 // Assembling data and generating HTML.
 
 const generateContact = ({title, link}) => (
-    `<a href="${link}" target="_blank">${title}</a>`
+    `<li><a href="${link}" target="_blank">${title}</a></li>`
 );
 
 const generateArticleHTML = ({link, title, date, description}) => (
