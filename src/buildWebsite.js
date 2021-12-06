@@ -62,7 +62,7 @@ const buildArticles = buildSection({
 
 // Fetching data and building the website.
 
-const getWebsiteData = fetch('/src/websiteData.json');
+const getWebsiteData = fetch('./src/websiteData.json');
 
 const parseJSON = rawData => rawData.json();
 
