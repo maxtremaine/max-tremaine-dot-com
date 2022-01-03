@@ -78,11 +78,11 @@ const hideJsWarning = () => {
 
 // Actions
 
-hideJsWarning();
 getWebsiteData
     .then(parseJSON)
     .then(data => {
         buildArticles(data);
         buildContact(data);
     })
-    .then(showHiddenNodes);
+    .then(showHiddenNodes)
+    .then(hideJsWarning);
